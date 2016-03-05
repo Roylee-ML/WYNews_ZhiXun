@@ -1,0 +1,327 @@
+2015-06-07 12:17:28.644 WYNews[42571:936057] CUICatalog: Invalid asset name supplied:
+2015-06-07 12:17:28.644 WYNews[42571:936057] CUICatalog: Invalid asset name supplied:
+2015-06-07 12:17:28.647 WYNews[42571:936057] CUICatalog: Invalid asset name supplied:
+2015-06-07 12:17:28.647 WYNews[42571:936057] CUICatalog: Invalid asset name supplied:
+2015-06-07 12:17:28.670 WYNews[42571:936057] CUICatalog: Invalid asset name supplied:
+2015-06-07 12:17:28.670 WYNews[42571:936057] CUICatalog: Invalid asset name supplied:
+2015-06-07 12:17:28.882 WYNews[42571:936057] CUICatalog: Invalid asset name supplied:
+2015-06-07 12:17:28.882 WYNews[42571:936057] CUICatalog: Invalid asset name supplied:
+2015-06-07 12:17:28.884 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Marion
+2015-06-07 12:17:28.884 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Marion-Italic
+2015-06-07 12:17:28.884 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Marion-Bold
+2015-06-07 12:17:28.884 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Marion-Regular
+2015-06-07 12:17:28.885 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Copperplate
+2015-06-07 12:17:28.885 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Copperplate-Light
+2015-06-07 12:17:28.885 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Copperplate
+2015-06-07 12:17:28.885 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Copperplate-Bold
+2015-06-07 12:17:28.885 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Heiti SC
+2015-06-07 12:17:28.886 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == STHeitiSC-Medium
+2015-06-07 12:17:28.886 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == STHeitiSC-Light
+2015-06-07 12:17:28.886 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Iowan Old Style
+2015-06-07 12:17:28.886 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == IowanOldStyle-Italic
+2015-06-07 12:17:28.886 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == IowanOldStyle-Roman
+2015-06-07 12:17:28.887 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == IowanOldStyle-BoldItalic
+2015-06-07 12:17:28.887 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == IowanOldStyle-Bold
+2015-06-07 12:17:28.887 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Courier New
+2015-06-07 12:17:28.887 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == CourierNewPS-BoldMT
+2015-06-07 12:17:28.887 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == CourierNewPS-ItalicMT
+2015-06-07 12:17:28.888 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == CourierNewPSMT
+2015-06-07 12:17:28.888 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == CourierNewPS-BoldItalicMT
+2015-06-07 12:17:28.888 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Apple SD Gothic Neo
+2015-06-07 12:17:28.889 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AppleSDGothicNeo-Bold
+2015-06-07 12:17:28.889 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AppleSDGothicNeo-Thin
+2015-06-07 12:17:28.889 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AppleSDGothicNeo-UltraLight
+2015-06-07 12:17:28.889 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AppleSDGothicNeo-Regular
+2015-06-07 12:17:28.890 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AppleSDGothicNeo-Light
+2015-06-07 12:17:28.890 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AppleSDGothicNeo-Medium
+2015-06-07 12:17:28.890 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AppleSDGothicNeo-SemiBold
+2015-06-07 12:17:28.890 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Heiti TC
+2015-06-07 12:17:28.890 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == STHeitiTC-Medium
+2015-06-07 12:17:28.891 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == STHeitiTC-Light
+2015-06-07 12:17:28.891 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Gill Sans
+2015-06-07 12:17:28.891 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans-Italic
+2015-06-07 12:17:28.891 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans-Bold
+2015-06-07 12:17:28.891 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans-BoldItalic
+2015-06-07 12:17:28.891 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans-LightItalic
+2015-06-07 12:17:28.892 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans
+2015-06-07 12:17:28.892 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans-Light
+2015-06-07 12:17:28.892 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans-SemiBold
+2015-06-07 12:17:28.892 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans-SemiBoldItalic
+2015-06-07 12:17:28.892 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GillSans-UltraBold
+2015-06-07 12:17:28.893 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Marker Felt
+2015-06-07 12:17:28.893 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == MarkerFelt-Thin
+2015-06-07 12:17:28.893 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == MarkerFelt-Wide
+2015-06-07 12:17:28.893 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Thonburi
+2015-06-07 12:17:28.893 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Thonburi
+2015-06-07 12:17:28.893 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Thonburi-Bold
+2015-06-07 12:17:28.894 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Thonburi-Light
+2015-06-07 12:17:28.894 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Avenir Next Condensed
+2015-06-07 12:17:28.894 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-BoldItalic
+2015-06-07 12:17:28.895 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-Heavy
+2015-06-07 12:17:28.895 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-Medium
+2015-06-07 12:17:28.895 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-Regular
+2015-06-07 12:17:28.896 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-HeavyItalic
+2015-06-07 12:17:28.896 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-MediumItalic
+2015-06-07 12:17:28.896 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-Italic
+2015-06-07 12:17:28.896 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-UltraLightItalic
+2015-06-07 12:17:28.896 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-DemiBold
+2015-06-07 12:17:28.896 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-UltraLight
+2015-06-07 12:17:28.897 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-Bold
+2015-06-07 12:17:28.897 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNextCondensed-DemiBoldItalic
+2015-06-07 12:17:28.897 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Tamil Sangam MN
+2015-06-07 12:17:28.897 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TamilSangamMN
+2015-06-07 12:17:28.897 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TamilSangamMN-Bold
+2015-06-07 12:17:28.898 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Helvetica Neue
+2015-06-07 12:17:28.898 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-Italic
+2015-06-07 12:17:28.898 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-Bold
+2015-06-07 12:17:28.898 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-UltraLight
+2015-06-07 12:17:28.898 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-CondensedBlack
+2015-06-07 12:17:28.899 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-BoldItalic
+2015-06-07 12:17:28.899 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-CondensedBold
+2015-06-07 12:17:28.899 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-Medium
+2015-06-07 12:17:28.899 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-Light
+2015-06-07 12:17:28.899 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-Thin
+2015-06-07 12:17:28.900 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-ThinItalic
+2015-06-07 12:17:28.900 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-LightItalic
+2015-06-07 12:17:28.900 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-UltraLightItalic
+2015-06-07 12:17:28.900 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue-MediumItalic
+2015-06-07 12:17:28.900 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HelveticaNeue
+2015-06-07 12:17:28.900 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Gurmukhi MN
+2015-06-07 12:17:28.901 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GurmukhiMN-Bold
+2015-06-07 12:17:28.901 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GurmukhiMN
+2015-06-07 12:17:28.901 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Times New Roman
+2015-06-07 12:17:28.901 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TimesNewRomanPSMT
+2015-06-07 12:17:28.901 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TimesNewRomanPS-BoldItalicMT
+2015-06-07 12:17:28.902 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TimesNewRomanPS-ItalicMT
+2015-06-07 12:17:28.902 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TimesNewRomanPS-BoldMT
+2015-06-07 12:17:28.902 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Georgia
+2015-06-07 12:17:28.902 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Georgia-BoldItalic
+2015-06-07 12:17:28.902 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Georgia
+2015-06-07 12:17:28.903 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Georgia-Italic
+2015-06-07 12:17:28.903 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Georgia-Bold
+2015-06-07 12:17:28.903 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Apple Color Emoji
+2015-06-07 12:17:28.903 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AppleColorEmoji
+2015-06-07 12:17:28.903 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Arial Rounded MT Bold
+2015-06-07 12:17:28.903 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ArialRoundedMTBold
+2015-06-07 12:17:28.904 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Kailasa
+2015-06-07 12:17:28.904 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Kailasa-Bold
+2015-06-07 12:17:28.904 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Kailasa
+2015-06-07 12:17:28.904 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Kohinoor Devanagari
+2015-06-07 12:17:28.904 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == KohinoorDevanagari-Light
+2015-06-07 12:17:28.905 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == KohinoorDevanagari-Medium
+2015-06-07 12:17:28.905 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == KohinoorDevanagari-Book
+2015-06-07 12:17:28.905 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Sinhala Sangam MN
+2015-06-07 12:17:28.905 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == SinhalaSangamMN-Bold
+2015-06-07 12:17:28.905 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == SinhalaSangamMN
+2015-06-07 12:17:28.906 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Chalkboard SE
+2015-06-07 12:17:28.906 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ChalkboardSE-Bold
+2015-06-07 12:17:28.906 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ChalkboardSE-Light
+2015-06-07 12:17:28.906 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ChalkboardSE-Regular
+2015-06-07 12:17:28.906 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Superclarendon
+2015-06-07 12:17:28.906 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Superclarendon-Italic
+2015-06-07 12:17:28.907 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Superclarendon-Black
+2015-06-07 12:17:28.907 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Superclarendon-LightItalic
+2015-06-07 12:17:28.907 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Superclarendon-BlackItalic
+2015-06-07 12:17:28.907 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Superclarendon-BoldItalic
+2015-06-07 12:17:28.907 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Superclarendon-Light
+2015-06-07 12:17:28.908 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Superclarendon-Regular
+2015-06-07 12:17:28.908 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Superclarendon-Bold
+2015-06-07 12:17:28.908 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Gujarati Sangam MN
+2015-06-07 12:17:28.908 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GujaratiSangamMN-Bold
+2015-06-07 12:17:28.908 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GujaratiSangamMN
+2015-06-07 12:17:28.909 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Damascus
+2015-06-07 12:17:28.909 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DamascusLight
+2015-06-07 12:17:28.909 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DamascusBold
+2015-06-07 12:17:28.909 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DamascusSemiBold
+2015-06-07 12:17:28.909 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DamascusMedium
+2015-06-07 12:17:28.909 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Damascus
+2015-06-07 12:17:28.910 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Noteworthy
+2015-06-07 12:17:28.910 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Noteworthy-Light
+2015-06-07 12:17:28.910 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Noteworthy-Bold
+2015-06-07 12:17:28.910 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Geeza Pro
+2015-06-07 12:17:28.910 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GeezaPro
+2015-06-07 12:17:28.911 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == GeezaPro-Bold
+2015-06-07 12:17:28.911 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Avenir
+2015-06-07 12:17:28.911 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-Medium
+2015-06-07 12:17:28.911 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-HeavyOblique
+2015-06-07 12:17:28.911 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-Book
+2015-06-07 12:17:28.911 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-Light
+2015-06-07 12:17:28.912 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-Roman
+2015-06-07 12:17:28.912 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-BookOblique
+2015-06-07 12:17:28.912 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-Black
+2015-06-07 12:17:28.912 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-MediumOblique
+2015-06-07 12:17:28.912 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-BlackOblique
+2015-06-07 12:17:28.913 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-Heavy
+2015-06-07 12:17:28.913 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-LightOblique
+2015-06-07 12:17:28.913 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Avenir-Oblique
+2015-06-07 12:17:28.913 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Academy Engraved LET
+2015-06-07 12:17:28.913 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AcademyEngravedLetPlain
+2015-06-07 12:17:28.913 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Mishafi
+2015-06-07 12:17:28.914 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DiwanMishafi
+2015-06-07 12:17:28.914 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Futura
+2015-06-07 12:17:28.914 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Futura-CondensedMedium
+2015-06-07 12:17:28.914 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Futura-CondensedExtraBold
+2015-06-07 12:17:28.914 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Futura-Medium
+2015-06-07 12:17:28.915 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Futura-MediumItalic
+2015-06-07 12:17:28.915 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Farah
+2015-06-07 12:17:28.915 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Farah
+2015-06-07 12:17:28.915 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Kannada Sangam MN
+2015-06-07 12:17:28.915 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == KannadaSangamMN
+2015-06-07 12:17:28.916 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == KannadaSangamMN-Bold
+2015-06-07 12:17:28.916 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Arial Hebrew
+2015-06-07 12:17:28.916 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ArialHebrew-Bold
+2015-06-07 12:17:28.916 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ArialHebrew-Light
+2015-06-07 12:17:28.916 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ArialHebrew
+2015-06-07 12:17:28.916 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Arial
+2015-06-07 12:17:28.917 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ArialMT
+2015-06-07 12:17:28.917 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Arial-BoldItalicMT
+2015-06-07 12:17:28.917 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Arial-BoldMT
+2015-06-07 12:17:28.917 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Arial-ItalicMT
+2015-06-07 12:17:28.917 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Party LET
+2015-06-07 12:17:28.918 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == PartyLetPlain
+2015-06-07 12:17:28.918 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Chalkduster
+2015-06-07 12:17:28.918 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Chalkduster
+2015-06-07 12:17:28.918 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Hiragino Kaku Gothic ProN
+2015-06-07 12:17:28.918 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HiraKakuProN-W6
+2015-06-07 12:17:28.918 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HiraKakuProN-W3
+2015-06-07 12:17:28.919 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Hoefler Text
+2015-06-07 12:17:28.919 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HoeflerText-Italic
+2015-06-07 12:17:28.919 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HoeflerText-Regular
+2015-06-07 12:17:28.919 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HoeflerText-Black
+2015-06-07 12:17:28.919 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HoeflerText-BlackItalic
+2015-06-07 12:17:28.920 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Optima
+2015-06-07 12:17:28.920 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Optima-Regular
+2015-06-07 12:17:28.920 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Optima-ExtraBlack
+2015-06-07 12:17:28.920 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Optima-BoldItalic
+2015-06-07 12:17:28.920 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Optima-Italic
+2015-06-07 12:17:28.921 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Optima-Bold
+2015-06-07 12:17:28.921 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Palatino
+2015-06-07 12:17:28.921 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Palatino-Bold
+2015-06-07 12:17:28.921 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Palatino-Roman
+2015-06-07 12:17:28.921 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Palatino-BoldItalic
+2015-06-07 12:17:28.921 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Palatino-Italic
+2015-06-07 12:17:28.922 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Malayalam Sangam MN
+2015-06-07 12:17:28.922 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == MalayalamSangamMN-Bold
+2015-06-07 12:17:28.922 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == MalayalamSangamMN
+2015-06-07 12:17:28.922 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Lao Sangam MN
+2015-06-07 12:17:28.922 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == LaoSangamMN
+2015-06-07 12:17:28.923 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Al Nile
+2015-06-07 12:17:28.923 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AlNile-Bold
+2015-06-07 12:17:28.923 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AlNile
+2015-06-07 12:17:28.923 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Bradley Hand
+2015-06-07 12:17:28.923 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BradleyHandITCTT-Bold
+2015-06-07 12:17:28.923 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Hiragino Mincho ProN
+2015-06-07 12:17:28.924 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HiraMinProN-W6
+2015-06-07 12:17:28.924 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == HiraMinProN-W3
+2015-06-07 12:17:28.924 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Trebuchet MS
+2015-06-07 12:17:28.924 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Trebuchet-BoldItalic
+2015-06-07 12:17:28.924 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TrebuchetMS
+2015-06-07 12:17:28.925 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TrebuchetMS-Bold
+2015-06-07 12:17:28.925 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TrebuchetMS-Italic
+2015-06-07 12:17:28.925 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Helvetica
+2015-06-07 12:17:28.925 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Helvetica-Bold
+2015-06-07 12:17:28.925 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Helvetica
+2015-06-07 12:17:28.926 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Helvetica-LightOblique
+2015-06-07 12:17:28.926 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Helvetica-Oblique
+2015-06-07 12:17:28.926 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Helvetica-BoldOblique
+2015-06-07 12:17:28.926 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Helvetica-Light
+2015-06-07 12:17:28.926 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Courier
+2015-06-07 12:17:28.926 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Courier-BoldOblique
+2015-06-07 12:17:28.927 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Palatino-Italic
+2015-06-07 12:17:28.927 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Courier-Bold
+2015-06-07 12:17:28.927 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Courier-Oblique
+2015-06-07 12:17:28.927 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Cochin
+2015-06-07 12:17:28.927 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Cochin-Bold
+2015-06-07 12:17:28.928 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Cochin
+2015-06-07 12:17:28.928 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Cochin-Italic
+2015-06-07 12:17:28.928 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Cochin-BoldItalic
+2015-06-07 12:17:28.928 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Devanagari Sangam MN
+2015-06-07 12:17:28.928 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DevanagariSangamMN
+2015-06-07 12:17:28.928 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DevanagariSangamMN-Bold
+2015-06-07 12:17:28.929 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Oriya Sangam MN
+2015-06-07 12:17:28.929 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == OriyaSangamMN
+2015-06-07 12:17:28.929 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == OriyaSangamMN-Bold
+2015-06-07 12:17:28.929 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Snell Roundhand
+2015-06-07 12:17:28.929 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == SnellRoundhand-Bold
+2015-06-07 12:17:28.930 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == SnellRoundhand
+2015-06-07 12:17:28.930 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == SnellRoundhand-Black
+2015-06-07 12:17:28.930 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Zapf Dingbats
+2015-06-07 12:17:28.930 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == ZapfDingbatsITC
+2015-06-07 12:17:28.930 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Bodoni 72
+2015-06-07 12:17:28.931 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BodoniSvtyTwoITCTT-Bold
+2015-06-07 12:17:28.931 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BodoniSvtyTwoITCTT-Book
+2015-06-07 12:17:28.931 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BodoniSvtyTwoITCTT-BookIta
+2015-06-07 12:17:28.931 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Verdana
+2015-06-07 12:17:28.931 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Verdana-Italic
+2015-06-07 12:17:28.931 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Verdana-BoldItalic
+2015-06-07 12:17:28.932 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Verdana
+2015-06-07 12:17:28.932 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Verdana-Bold
+2015-06-07 12:17:28.932 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == American Typewriter
+2015-06-07 12:17:28.932 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AmericanTypewriter-CondensedLight
+2015-06-07 12:17:28.932 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName ==  
+2015-06-07 12:17:28.933 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AmericanTypewriter-CondensedBold
+2015-06-07 12:17:28.933 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AmericanTypewriter-Light
+2015-06-07 12:17:28.933 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AmericanTypewriter-Bold
+2015-06-07 12:17:28.933 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AmericanTypewriter-Condensed
+2015-06-07 12:17:28.933 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Avenir Next
+2015-06-07 12:17:28.934 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-UltraLight
+2015-06-07 12:17:28.934 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-UltraLightItalic
+2015-06-07 12:17:28.934 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-Bold
+2015-06-07 12:17:28.934 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-BoldItalic
+2015-06-07 12:17:28.934 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-DemiBold
+2015-06-07 12:17:28.934 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-DemiBoldItalic
+2015-06-07 12:17:28.935 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-Medium
+2015-06-07 12:17:29.053 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-HeavyItalic
+2015-06-07 12:17:29.053 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-Heavy
+2015-06-07 12:17:29.054 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-Italic
+2015-06-07 12:17:29.054 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-Regular
+2015-06-07 12:17:29.054 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == AvenirNext-MediumItalic
+2015-06-07 12:17:29.054 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Baskerville
+2015-06-07 12:17:29.054 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Baskerville-Italic
+2015-06-07 12:17:29.055 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Baskerville-SemiBold
+2015-06-07 12:17:29.055 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Baskerville-BoldItalic
+2015-06-07 12:17:29.055 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Baskerville-SemiBoldItalic
+2015-06-07 12:17:29.055 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Baskerville-Bold
+2015-06-07 12:17:29.055 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Baskerville
+2015-06-07 12:17:29.055 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Khmer Sangam MN
+2015-06-07 12:17:29.056 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == KhmerSangamMN
+2015-06-07 12:17:29.056 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Didot
+2015-06-07 12:17:29.056 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Didot-Italic
+2015-06-07 12:17:29.056 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Didot-Bold
+2015-06-07 12:17:29.056 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Didot
+2015-06-07 12:17:29.056 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Savoye LET
+2015-06-07 12:17:29.057 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == SavoyeLetPlain
+2015-06-07 12:17:29.057 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Bodoni Ornaments
+2015-06-07 12:17:29.057 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BodoniOrnamentsITCTT
+2015-06-07 12:17:29.057 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Symbol
+2015-06-07 12:17:29.057 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Symbol
+2015-06-07 12:17:29.058 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Menlo
+2015-06-07 12:17:29.058 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Menlo-Italic
+2015-06-07 12:17:29.058 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Menlo-Bold
+2015-06-07 12:17:29.058 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Menlo-Regular
+2015-06-07 12:17:29.058 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Menlo-BoldItalic
+2015-06-07 12:17:29.058 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Bodoni 72 Smallcaps
+2015-06-07 12:17:29.059 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BodoniSvtyTwoSCITCTT-Book
+2015-06-07 12:17:29.059 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == DIN Alternate
+2015-06-07 12:17:29.059 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DINAlternate-Bold
+2015-06-07 12:17:29.059 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Papyrus
+2015-06-07 12:17:29.059 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Papyrus
+2015-06-07 12:17:29.060 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Papyrus-Condensed
+2015-06-07 12:17:29.060 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Euphemia UCAS
+2015-06-07 12:17:29.060 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == EuphemiaUCAS-Italic
+2015-06-07 12:17:29.060 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == EuphemiaUCAS
+2015-06-07 12:17:29.060 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == EuphemiaUCAS-Bold
+2015-06-07 12:17:29.060 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Telugu Sangam MN
+2015-06-07 12:17:29.061 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TeluguSangamMN
+2015-06-07 12:17:29.061 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == TeluguSangamMN-Bold
+2015-06-07 12:17:29.061 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Bangla Sangam MN
+2015-06-07 12:17:29.061 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BanglaSangamMN-Bold
+2015-06-07 12:17:29.061 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BanglaSangamMN
+2015-06-07 12:17:29.062 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Zapfino
+2015-06-07 12:17:29.062 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == Zapfino
+2015-06-07 12:17:29.062 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == Bodoni 72 Oldstyle
+2015-06-07 12:17:29.062 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BodoniSvtyTwoOSITCTT-Book
+2015-06-07 12:17:29.062 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BodoniSvtyTwoOSITCTT-Bold
+2015-06-07 12:17:29.062 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == BodoniSvtyTwoOSITCTT-BookIt
+2015-06-07 12:17:29.063 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](66): familyName == DIN Condensed
+2015-06-07 12:17:29.063 WYNews[42571:936057] DEBUG -[NewsViewController viewDidLoad](69): fontName == DINCondensed-Bold

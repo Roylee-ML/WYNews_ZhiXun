@@ -237,7 +237,6 @@
     MVideo * video = [self.videoVMSource.videoSource objectAtIndex:track.itemIndexPath.row];
     video.statusLayout.playStatus = VideoPlayStatusPlaying;
     video.statusLayout.totalTime = [playerManger.player currentItemDuration];
-    
     UserVideoCell * cell = (UserVideoCell *)[self.videoVMSource.tableView p_cellForRowAtIndexPath:track.itemIndexPath];
     [cell refreshPlayViewBy:video isOnlyProgress:NO];
 }

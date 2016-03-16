@@ -10,6 +10,11 @@
 #import "AVPlayerManger.h"
 #import "UserVideoCell.h"
 
+/*!
+ *  @VideoCellPlayVM 作为视频播放cell的viewModel代理，所有播放的操作均由这个类完成
+ *  @VideoCellPlayVMSource 作为 VideoCellPlayVM 的数据源，存储视频的数据源，以及tableview与ViewController.因此，所有的数据都是存储在这个类的对象中，所以当用户网络请求或者其他操作更新数据的时候，VideoCellPlayVMSource 的数据源数组 videoSource 也要及时得到更新
+ */
+
 @interface VideoCellPlayVMSource : NSObject
 
 @property (nonatomic, strong) NSMutableArray * videoSource;

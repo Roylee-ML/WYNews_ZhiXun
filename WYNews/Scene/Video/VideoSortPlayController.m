@@ -128,6 +128,9 @@ static NSString *  VideoSortDataFromDBKey = @"VideoSortDataFromDBKey";
             self.mVideoList = _videoList;
             //数据库存储
             [DataBaseHandle insertDBWWithArra:_mVideoList.videoList byID:VideoSortDataFromDBKey];
+            // vm data update
+            self.videoCellPlayVM.videoVMSource.videoSource = self.mVideoList.videoList;
+            // refresh UI
             [self.tableView reloadData];
         }
     } errorHandle:^(NSError *error) {
@@ -160,6 +163,9 @@ static NSString *  VideoSortDataFromDBKey = @"VideoSortDataFromDBKey";
     [self.videoCellPlayVM didSelectRowAtIndexPath:indexPath];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.videoCellPlayVM resetUserVideoCellPlayStatus];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

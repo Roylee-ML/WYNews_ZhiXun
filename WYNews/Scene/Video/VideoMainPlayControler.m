@@ -13,6 +13,7 @@
 #import "NSObject+UIAlert.h"
 #import "VideoSortHeaderBar.h"
 #import "VideoSortPlayController.h"
+#import "OnePlayer.h"
 
 #define STATUS_HEIGHT  [UIApplication sharedApplication].statusBarFrame.size.height
 #define NAV_HEIGHT     self.navigationController.navigationBar.frame.size.height
@@ -31,6 +32,10 @@ static NSString * const VideoDataFromDBKey = @"VideoDataFromDBKey";
 
 @implementation VideoMainPlayControler
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -38,8 +43,10 @@ static NSString * const VideoDataFromDBKey = @"VideoDataFromDBKey";
     [self initViews];
     [self initData];
     
-    //设置导航栏视图
+    // 设置导航栏视图
     [[ShareManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
+    // FM播放的时候，点击顶部播放提示状态栏进入FM播放页面
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushPlayingAudioVC:) name:BackAudioMark object:nil];
 }
 
 - (void)initViews {
@@ -116,6 +123,8 @@ static NSString * const VideoDataFromDBKey = @"VideoDataFromDBKey";
             }
             db_dic[@"videoList"] = _mVideoList.videoList;
             [DataBaseHandle insertDBWWithDictionary:db_dic byID:VideoDataFromDBKey];
+            // vm data update
+            self.videoCellPlayVM.videoVMSource.videoSource = self.mVideoList.videoList;
             // refresh UI
             if (currentPage == 0) {
                 [self.headerSortBar setSorts:_mVideoList.videoSortList];
@@ -153,6 +162,15 @@ static NSString * const VideoDataFromDBKey = @"VideoDataFromDBKey";
     [self.videoCellPlayVM didSelectRowAtIndexPath:indexPath];
 }
 
+#pragma mark - Push FMVC by tap StatusBar
+-(void)pushPlayingAudioVC:(NSNotification*)notification {
+    [[OnePlayer onePlayer] playAudioFromController:self];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.videoCellPlayVM resetUserVideoCellPlayStatus];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -257,10 +257,8 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
         
     }];
     _videoBgImgV.backgroundColor = [UIColor blackColor];
-    if (video.statusLayout.playStatus != VideoPlayStatusPause) {
-        _controlView.alpha = 0;
-        _isControlBarShowing = NO;
-    }
+    _controlView.alpha = 0;
+    _isControlBarShowing = NO;
     [self refreshPlayViewByStatus:video];
 }
 

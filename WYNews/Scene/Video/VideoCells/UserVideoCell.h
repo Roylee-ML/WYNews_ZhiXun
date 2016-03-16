@@ -10,6 +10,12 @@
 #import "VideoPlayView.h"
 #import "MVideo.h"
 
+/*!
+ *  @视频的主要布局有数据源MVideo的layout后计算所得frame数据，布局的动态性也由数据源决定
+ *  @视频cell的播放状态，是根据数据源中 statusLayout 的不同状态做不同的更新。当改变数据源中 statusLayout 的状态值并作刷新即可改变视频cell的状态
+ */
+
+
 UIKIT_EXTERN NSString *const kUserVideoCellIdfy_Normal;
 UIKIT_EXTERN NSString *const kUserVideoCellIdfy_OtherStyle;
 

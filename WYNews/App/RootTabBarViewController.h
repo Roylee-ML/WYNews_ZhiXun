@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewsViewController.h"
 #import "FMViewController.h"
-#import "VideoPlayControler.h"
+#import "VideoMainPlayControler.h"
 
 
 @interface RootTabBarViewController : UITabBarController

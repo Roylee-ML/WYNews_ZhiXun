@@ -11,7 +11,7 @@
 #import "ImageCell.h"
 #import "DataModel.h"
 #import "UIImageView+WebCache.h"
-#import "SDRefresh.h"
+
 @interface BookTableViewController : UITableViewController
 @property(nonatomic,strong) NSMutableArray * array;
 @property(nonatomic,strong) NSMutableArray * oneArray;//存储第一个model

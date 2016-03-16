@@ -105,7 +105,7 @@
     NSString * str=[url substringWithRange:range];
     
     __weak FashionTableViewController  * sself = self;
-    [PersistManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray *dataArray) {
+    [ShareManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray *dataArray) {
         NSMutableArray * array=[[NSMutableArray alloc]initWithArray:dataArray];
         DataModel * model=array[0];
         if (self.oneArray.count != 0) {
@@ -180,7 +180,7 @@
     //解析数据
     
     __weak FashionTableViewController  * sself = self;
-    [PersistManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray *dataArray) {
+    [ShareManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray *dataArray) {
         NSMutableArray * array=[[NSMutableArray alloc]initWithArray:dataArray];
         
         [sself.array addObjectsFromArray:array];

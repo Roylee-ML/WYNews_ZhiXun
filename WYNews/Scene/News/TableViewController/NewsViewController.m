@@ -30,7 +30,7 @@
     [navTabBarController addParentController:self];
     
     //设置自定义导航栏
-    [[PersistManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
+    [[ShareManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
 
     
     // Do any additional setup after loading the view from its nib.

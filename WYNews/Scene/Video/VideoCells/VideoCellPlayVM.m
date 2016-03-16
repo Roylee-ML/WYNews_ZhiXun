@@ -100,7 +100,7 @@
 
 #pragma mark - Net Status Judge
 - (void)judgeNetStatusCompletion:(void(^)(BOOL shouldPlay))completion {
-    NSString * state = [PersistManger networkingStatusFromStatebar];
+    NSString * state = [ShareManger networkingStatusFromStatebar];
     
     if ([state isEqualToString:@"notReachable"]) {
         [self showAlertWithTitle:@"提示" message:@"您当前的网络不可用" delegate:self.videoVMSource.containerVC completionHandle:^(NSUInteger buttonIndex, id alertView) {
@@ -148,7 +148,7 @@
             NSLog(@"totaltime === %.2f",video.statusLayout.totalTime);
             
             // play
-            AVPlayerTrack * track = [[AVPlayerTrack alloc]initWithStreamURL:[NSURL URLWithString:video.videoUrl]];
+            AVPlayerTrack * track = [[AVPlayerTrack alloc]initWithStreamURL:[NSURL URLWithString:video.m3u8Url]];
             [track setItemIndexPath:indexPath];
             [self.playerManger setCurrentPlayerView:cell.playView];
             [self.playerManger loadVideoWithTrack:track];

@@ -13,8 +13,8 @@
 #import "ImgCell2.h"
 #import "ImgeCell1.h"
 #import "UIImageView+WebCache.h"
-#import "SDRefresh.h"
 #import "PhotosetDetailController.h"
+
 @interface ImageTableViewController : UITableViewController
 @property(nonatomic,strong) NSMutableArray * array;
 @end

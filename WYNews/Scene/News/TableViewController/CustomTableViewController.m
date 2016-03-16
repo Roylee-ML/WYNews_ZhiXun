@@ -13,7 +13,6 @@
 #import "UIImageView+WebCache.h"
 #import "NSString+StringHeight.h"
 
-#import "SDRefresh.h"
 #import "CommonDetailViewController.h"
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define SELF_HEIGHT [[UIScreen mainScreen]bounds].size.height
@@ -24,7 +23,6 @@
 @interface CustomTableViewController ()
 
 @property (nonatomic, strong) NSTimer *outTimer;
-@property (nonatomic, weak) SDRefreshHeaderView *refreshHeader;
 @property (nonatomic, assign) int Count;
 
 @property (nonatomic,strong) NSMutableArray * fontArr;
@@ -85,7 +83,7 @@
 ////清除缓存
 //-(void)clearDisk
 //{
-//    [PersistManger clearAlertShowByVC:self];
+//    [ShareManger clearAlertShowByVC:self];
 //}
 
 -(void)showNetWorkBad
@@ -115,7 +113,7 @@
     
     __weak CustomTableViewController * sself = self;
     
-    [PersistManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray * dataArray) {
+    [ShareManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray * dataArray) {
         NSMutableArray * array=[[NSMutableArray alloc]initWithArray:dataArray];
         //新加载的数据添加到原来的数组中
         [sself.array addObjectsFromArray:array];
@@ -143,13 +141,13 @@
     //解析数据
     
     __weak CustomTableViewController * sself = self;
-    [PersistManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray * dataArray) {
+    [ShareManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray * dataArray) {
         if (dataArray.count != 0) {
             NSMutableArray * array=[[NSMutableArray alloc]initWithArray:dataArray];
             
             DataModel * dataModel=array[0];
             //单例传值到轮播图
-            //        [PersistManger defoutManger].dataModel=dataModel;
+            //        [ShareManger defoutManger].dataModel=dataModel;
             //移除第一个model
             [array removeObjectAtIndex:0];
             if (sself.array.count != 0) {

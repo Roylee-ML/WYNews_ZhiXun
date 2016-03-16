@@ -121,7 +121,7 @@
 -(void)didClickPlayAndChangeToList:(UIButton*)button
 {
     //单例代理执行播放电台功能
-    [[PersistManger defoutManger].playDelegate playFMAudioWithaDocid:_model.docid tname:_model.tname andImage:_diskImage];
+    [[ShareManger defoutManger].playDelegate playFMAudioWithaDocid:_model.docid tname:_model.tname andImage:_diskImage];
 }
 
 

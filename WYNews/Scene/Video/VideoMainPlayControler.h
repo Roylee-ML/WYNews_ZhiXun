@@ -1,5 +1,5 @@
 //
-//  VideoPlayControler.h
+//  VideoMainPlayControler.h
 //  WYNews
 //
 //  Created by Roy lee on 16/3/15.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoPlayControler : UIViewController
+@interface VideoMainPlayControler : UIViewController
+
 
 @end

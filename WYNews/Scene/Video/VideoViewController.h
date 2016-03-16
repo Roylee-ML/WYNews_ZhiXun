@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, PlayWindowStyle) {
     PlayWindowOrgin
 };
 
-WY_DEPRECATED_IOS(2_2, "VideoViewController has been replaced with VideoPlayControler")
+WY_DEPRECATED_IOS(2_2, "VideoViewController has been replaced with VideoMainPlayControler")
 
 @interface VideoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,FinishedPlay,ShowPlayingAudio>
 

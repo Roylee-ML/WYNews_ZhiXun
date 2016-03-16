@@ -11,7 +11,7 @@
 #import "FunnyCell.h"
 #import "UIImageView+WebCache.h"
 #import "FunnyImageCell.h"
-#import "SDRefresh.h"
+
 @interface FunnyTableViewController : UITableViewController
 @property(nonatomic,strong) NSMutableArray * array;
 

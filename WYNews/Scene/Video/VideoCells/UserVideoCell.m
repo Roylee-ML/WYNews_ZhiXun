@@ -283,8 +283,6 @@ typedef void(^BottomBarTapAction)(id sender,NSInteger index);
         [self addSubview:item];
         item;
     });
-    // line
-    [self addLineUp:NO andDown:YES andColor:[UIColor colorWithHex:@"dddddd"] andLeftSpace:0 rightSpace:0];
     // actions
     @weakify(self);
     [self.replayItem addAction:^(id sender) {
@@ -391,8 +389,9 @@ typedef void(^BottomBarTapAction)(id sender,NSInteger index);
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    if (![self viewWithTag:kTagLineViewUp]) {
-        [self addLineUp:YES andDown:NO andColor:[UIColor colorWithHex:@"dddddd"] andLeftSpace:0 rightSpace:0];
+    if (![self.containerView viewWithTag:kTagLineViewUp]) {
+        // line
+        [self.containerView addLineUp:YES andDown:YES andColor:[UIColor colorWithHex:@"dddddd"] andLeftSpace:0 rightSpace:0];
     }
 }
 
@@ -489,6 +488,7 @@ typedef void(^BottomBarTapAction)(id sender,NSInteger index);
     _bottomBar.top = _playView.bottom;
     _bottomBar.height = video.bottomBarHeight;
     
+    _containerView.top = video.marginTop;
     _containerView.height = video.containerHeight;
 }
 
@@ -503,7 +503,6 @@ typedef void(^BottomBarTapAction)(id sender,NSInteger index);
 
 + (CGFloat)cellHeightWith:(MVideo *)video
 {
-    NSLog(@"视频cell的高度是：%.2f",video.cellHeight);
     return video.cellHeight;
 }
 

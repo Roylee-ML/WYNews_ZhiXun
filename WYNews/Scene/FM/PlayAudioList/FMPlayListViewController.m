@@ -70,8 +70,8 @@ typedef void(^StopRunloop)();
         self.continuePlay = NO;
         
         //重置收藏列表的播放下标
-        [PersistManger defoutManger].isPlayingIndex = -1;
-        [PersistManger defoutManger].isPlayCollection = NO;
+        [ShareManger defoutManger].isPlayingIndex = -1;
+        [ShareManger defoutManger].isPlayCollection = NO;
     }
     return self;
 }
@@ -135,19 +135,19 @@ typedef void(^StopRunloop)();
     [OnePlayer onePlayer].delegate = self;
     [OnePlayer onePlayer].playingController = self;
     
-    NSInteger page = [PersistManger getRefreshPage];
+    NSInteger page = [ShareManger getRefreshPage];
     if (page) {
         _pageCount = (int)page;
     }
     
     self.listTableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [PersistManger getFMPlayListDataWithUrl:_playingModel.tid page:++ _pageCount andByHandle:^(NSArray *arr) {
+        [ShareManger getFMPlayListDataWithUrl:_playingModel.tid page:++ _pageCount andByHandle:^(NSArray *arr) {
             if (arr.count != 0) {
                 [self.listModelArray addObjectsFromArray:arr];
                 [self.listTableView reloadData];
                 
                 [DataBaseHandle insertDBWWithArra:_listModelArray byID:self.dbDocidKey];
-                [PersistManger setRefreshPage:_pageCount];
+                [ShareManger setRefreshPage:_pageCount];
                 
                 [self.listTableView.footer endRefreshing];
             }else{
@@ -670,11 +670,11 @@ typedef void(^StopRunloop)();
         cell.timeLable.text = model.ptime;
         
         //设置下载图片
-        if ([[PersistManger defoutManger]isDownloadWith:model.docid]) {
+        if ([[ShareManger defoutManger]isDownloadWith:model.docid]) {
             [cell setupDownloadBTImageWithState:DownloadDone];
         }else{
             //沙盒字典粗出下载状态,是否正在下载
-            BOOL isDownloading = [[PersistManger defoutManger]isDownloadingWith:[NSString stringWithFormat:@"%@downloading",model.docid]];
+            BOOL isDownloading = [[ShareManger defoutManger]isDownloadingWith:[NSString stringWithFormat:@"%@downloading",model.docid]];
             if (!isDownloading) {
                 [cell setupDownloadBTImageWithState:DownloadAvilable];
             }else{
@@ -713,7 +713,7 @@ typedef void(^StopRunloop)();
     FMListModel * model = (FMListModel*)_listModelArray[index];
     FMlistTableViewCell * cell = (FMlistTableViewCell*)[self.listTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
     
-    BOOL isDownloading = [[PersistManger defoutManger]isDownloadingWith:[NSString stringWithFormat:@"%@downloading",model.docid]];
+    BOOL isDownloading = [[ShareManger defoutManger]isDownloadingWith:[NSString stringWithFormat:@"%@downloading",model.docid]];
     
     if (!isDownloading) {
         [self downloadDataAtIndex:index];
@@ -724,7 +724,7 @@ typedef void(^StopRunloop)();
         
         [sessionDownOperation cancellResumableTask];
         [cell setupDownloadBTImageWithState:DownloadAvilable];
-        [[PersistManger defoutManger]deleteDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",model.docid]];
+        [[ShareManger defoutManger]deleteDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",model.docid]];
     }
 }
 
@@ -739,14 +739,14 @@ typedef void(^StopRunloop)();
             sessionDownOperation = [NSURLSessionDownload urlSessionResumableTaskWithUrl:[NSURL URLWithString:_playingModel.url_mp4] andHandle:^{
                 //开始下载时的操作
                 
-                [[PersistManger defoutManger]setDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",_playingModel.docid]];
+                [[ShareManger defoutManger]setDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",_playingModel.docid]];
             }];
             
             //将下载工具对象存入字典
             [self.downloadObjectDic setObject:sessionDownOperation forKey:@(index)];
         }else{
             [sessionDownOperation resumableTaskWithUrl:[NSURL URLWithString:_playingModel.url_mp4] andHandle:^{
-                [[PersistManger defoutManger]setDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",_playingModel.docid]];
+                [[ShareManger defoutManger]setDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",_playingModel.docid]];
                 NSLog(@"downloadIndex ================ %d",(int)index);
                 NSLog(@"mp4Url-playingmodel ---------- %@",_playingModel.url_mp4);
             }];
@@ -773,10 +773,10 @@ typedef void(^StopRunloop)();
                 }
                 
                 //设置下载完成标记
-                [[PersistManger defoutManger]setDownloadMarkWith:playingModel.docid];
+                [[ShareManger defoutManger]setDownloadMarkWith:playingModel.docid];
                 
                 //取消正在下载标记
-                [[PersistManger defoutManger]deleteDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",playingModel.docid]];
+                [[ShareManger defoutManger]deleteDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",playingModel.docid]];
                 
                 FMlistTableViewCell * cell = (FMlistTableViewCell*)[self.listTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
                 
@@ -795,7 +795,7 @@ typedef void(^StopRunloop)();
     
     NSLog(@"index ==== %d,model ===== %@",(int)index,listModel.docid);
     
-    [PersistManger getFMPlayingDataWithUrl:listModel.docid andByHandle:^(id model) {
+    [ShareManger getFMPlayingDataWithUrl:listModel.docid andByHandle:^(id model) {
         FMPlayingModel * playModel = model;
         NSLog(@"downloadIndex ================ %d,%@,%@",(int)index,playModel.docid,playModel);
         NSLog(@"mp4Url --model --------------- %@",playModel.url_mp4);
@@ -806,13 +806,13 @@ typedef void(^StopRunloop)();
             sessionDownOperation = [NSURLSessionDownload urlSessionResumableTaskWithUrl:[NSURL URLWithString:playModel.url_mp4] andHandle:^{
                 //开始下载时的操作
                 
-                [[PersistManger defoutManger]setDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",playModel.docid]];
+                [[ShareManger defoutManger]setDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",playModel.docid]];
             }];
             
             [self.downloadObjectDic setObject:sessionDownOperation forKey:@(index)];
         }else{
             [sessionDownOperation resumableTaskWithUrl:[NSURL URLWithString:playModel.url_mp4] andHandle:^{
-                [[PersistManger defoutManger]setDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",playModel.docid]];
+                [[ShareManger defoutManger]setDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",playModel.docid]];
             }];
         }
         
@@ -837,10 +837,10 @@ typedef void(^StopRunloop)();
                 }
                 
                 //设置下载完成标记
-                [[PersistManger defoutManger]setDownloadMarkWith:playModel.docid];
+                [[ShareManger defoutManger]setDownloadMarkWith:playModel.docid];
                 
                 //取消正在下载标记
-                [[PersistManger defoutManger]deleteDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",playModel.docid]];
+                [[ShareManger defoutManger]deleteDownloadingMarkWith:[NSString stringWithFormat:@"%@downloading",playModel.docid]];
                 
                 FMlistTableViewCell * cell = (FMlistTableViewCell*)[self.listTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
                 
@@ -875,7 +875,7 @@ typedef void(^StopRunloop)();
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //判断网络状态
-    [[PersistManger defoutManger]judgeNetStatusAndAlert];
+    [[ShareManger defoutManger]judgeNetStatusAndAlert];
     
     //先暂停palyer
     [[OnePlayer onePlayer]pause];
@@ -939,7 +939,7 @@ typedef void(^StopRunloop)();
 {
     FMListModel * model = _listModelArray[index];
     
-    [PersistManger getFMPlayingDataWithUrl:model.docid andByHandle:^(id model) {
+    [ShareManger getFMPlayingDataWithUrl:model.docid andByHandle:^(id model) {
         FMPlayingModel * playModel = (FMPlayingModel*)model;
         
         NSLog(@"docid ====== %@",playModel.docid);
@@ -968,7 +968,7 @@ typedef void(^StopRunloop)();
     
     FMListModel * model = _listModelArray[index];
     
-    [PersistManger getFMPlayingDataWithUrl:model.docid andByHandle:^(id model) {
+    [ShareManger getFMPlayingDataWithUrl:model.docid andByHandle:^(id model) {
         FMPlayingModel * playModel = (FMPlayingModel*)model;
         
         [sself.diskImgView changeDiskImageWithUrl:playModel.cover andHandle:^(UIImage *img) {
@@ -990,7 +990,7 @@ typedef void(^StopRunloop)();
     [[OnePlayer onePlayer]setMask:[self.diskImgView diskImage] forKey:kDiskImage];
     [[OnePlayer onePlayer]setMask:self.coverImg forKey:kDiskCover];
     if ([OnePlayer onePlayer].isPlaying) {
-        [PersistManger showPlayingSmallWindowWith:_playingModel name:self.cateName title:_playingModel.title dbKey:self.dbDocidKey];
+        [ShareManger showPlayingSmallWindowWith:_playingModel name:self.cateName title:_playingModel.title dbKey:self.dbDocidKey];
     }
     
 //    _playingModel = nil;
@@ -1010,7 +1010,7 @@ typedef void(^StopRunloop)();
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [PersistManger hidenSmallWindow];
+    [ShareManger hidenSmallWindow];
     
     if (![[OnePlayer onePlayer]isPlaying]) {
         [_diskImgView pauseRotate];

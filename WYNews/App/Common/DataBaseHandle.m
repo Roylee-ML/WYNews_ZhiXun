@@ -122,19 +122,16 @@ static FMDatabase * _db = nil;
         [_db close];
         return nil;
     }
-    
+    NSArray * array = nil;
     FMResultSet * set = [_db executeQuery:@"select data from news where news_id = ?",titleID];
     if ([set next]) {
         NSData * data = [set dataForColumn:@"data"];
         NSKeyedUnarchiver * unArchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
-        NSArray * array = [unArchiver decodeObjectForKey:titleID];
+        array = [unArchiver decodeObjectForKey:titleID];
         [unArchiver finishDecoding];
-        
-        [_db close];
-        return array;
     }
-        [_db close];
-    return nil;
+    [_db close];
+    return array;
 }
 
 //插入数据
@@ -159,9 +156,6 @@ static FMDatabase * _db = nil;
     NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
     [archiver encodeObject:dataDic forKey:model_id];
     [archiver finishEncoding];
-    
-//    NSLog(@"data ========== %@",data);
-//    NSData * data = [NSPropertyListSerialization dataWithPropertyList:dataDic format:NSPropertyListOpenStepFormat options:0 error:nil];
     
     FMResultSet * set = [_db executeQuery:@"select data from news where news_id = ?",model_id];
     if ([set next]) {
@@ -191,21 +185,16 @@ static FMDatabase * _db = nil;
         return nil;
     }
     
+    NSDictionary * dic = nil;
     FMResultSet * set = [_db executeQuery:@"select data from news where news_id = ?",titleID];
     if ([set next]) {
         NSData * data = [set dataForColumn:@"data"];
         NSKeyedUnarchiver * unArchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
-        NSDictionary * Dic = [unArchiver decodeObjectForKey:titleID];
+        dic = [unArchiver decodeObjectForKey:titleID];
         [unArchiver finishDecoding];
-        
-//        NSLog(@"dictionary ====== %@",Dic);
-//        NSDictionary * Dic = [NSPropertyListSerialization propertyListWithData:data options:0 format:NULL error:nil];
-        
-        [_db close];
-        return Dic;
     }
-        [_db close];
-    return nil;
+    [_db close];
+    return dic;
 }
 
 

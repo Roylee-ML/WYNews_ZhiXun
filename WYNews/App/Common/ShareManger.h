@@ -1,5 +1,5 @@
 //
-//  PersistManger.h
+//  ShareManger.h
 //  WYNews
 //
 //  Created by lanou3g on 15/5/28.
@@ -16,8 +16,6 @@
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
 #import "MVideo.h"
-#import "SDRefreshFooterView.h"
-#import "SDRefreshHeaderView.h"
 
 typedef void(^DataBlock)(id obj);
 typedef void(^FMDataBlock)(NSDictionary * dic);
@@ -26,10 +24,7 @@ typedef void(^RefreshBlock)();
 typedef void(^RefreshHDBlock)();
 //显示进度占位
 typedef void(^HUDBlock)();
-
 typedef void(^PlaceBlock)();
-
-
 typedef void(^Back)(NSArray * dataArray);
 
 //用于实现点击音乐列表页面的item播放音乐的协议
@@ -46,11 +41,10 @@ typedef void(^Back)(NSArray * dataArray);
 
 @end
 
-@interface PersistManger : NSObject
+@interface ShareManger : NSObject
 
 @property (nonatomic,assign) id<PlayFMVideoDelegate> playDelegate;
 @property (nonatomic,assign) id<ShowPlayingAudio> showDelegate;
-
 
 
 //新闻列表属性
@@ -65,16 +59,25 @@ typedef void(^Back)(NSArray * dataArray);
 //下载任务随机路径
 @property (nonatomic,strong) NSMutableArray * pathNumArray;
 
+//当前视频分类列表id
+@property (nonatomic,strong) NSString * currentVideoSid;
 
-+(PersistManger*)defoutManger;
 
-//解析视频数据
++(ShareManger*)defoutManger;
+
+// 解析视频数据
 +(void)getModelWithUrl:(NSURL*)url andByHandle:(DataBlock)block;
 
-+ (void)getVideoListWithUrl:(NSURL*)url
-                 mVideoList:(MVideoList *)videoList
-         complicationHandle:(DataBlock)result
-                errorHandle:(void(^)(NSError * error))errorHandle;
++ (void)getHomeVideoListWithPage:(int)page
+                      mVideoList:(MHomeVideoList *)videoList
+              complicationHandle:(DataBlock)result
+                     errorHandle:(void(^)(NSError * error))errorHandle;
+
++ (void)getVideoListWithSortID:(NSString *)s_id
+                          page:(int)page
+                    mVideoList:(MVideoList *)videoList
+            complicationHandle:(DataBlock)result
+                   errorHandle:(void(^)(NSError * error))errorHandle;
 
 //解析电台数据
 +(void)getFMDataWithUrl:(NSURL*)url andByHandle:(FMDataBlock)block;
@@ -120,12 +123,6 @@ typedef void(^Back)(NSArray * dataArray);
 
 //获取音乐刷新页数
 +(NSInteger)getRefreshPage;
-
-//上拉加载
--(void)refreshFooterToView:(UIScrollView*)scroollView andEndByHandle:(RefreshBlock)handle;
-
-//下拉刷新
-//-(void)refreshHeaderToView:(UIScrollView*)scrollView andEndByHandle:(RefreshHDBlock)hd_handle;
 
 //获取网路状态
 +(NSString*)networkingStatusFromStatebar;

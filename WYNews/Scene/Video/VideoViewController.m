@@ -58,7 +58,7 @@
 -(instancetype)init
 {
     if ([super init]) {
-        //        [PersistManger defoutManger].showDelegate = self;
+        //        [ShareManger defoutManger].showDelegate = self;
         self.pageCount = 1;
         
         //注册程序进入后台通知，取消视播放
@@ -144,7 +144,7 @@
         }
         self.outTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(showNetWorkBad) userInfo:nil repeats:NO];
         if ([OnePlayer onePlayer].isPlyed && ![[OnePlayer onePlayer].playerLayer superlayer]) {
-            [PersistManger getModelWithUrl:[NSURL URLWithString:VIDEO_URL(1)] andByHandle:^(NSMutableArray *arr) {
+            [ShareManger getModelWithUrl:[NSURL URLWithString:HOME_VIDEO_URL(1)] andByHandle:^(NSMutableArray *arr) {
                 if (self.dataArray.count != 0) {
                     [_dataArray removeAllObjects];
                 }
@@ -196,7 +196,7 @@
     _isPlaying = NO;
     
     //设置导航栏视图
-    [[PersistManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
+    [[ShareManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
     
     //上拉加载
     self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
@@ -206,7 +206,7 @@
 
 -(void)refreshData
 {
-    [PersistManger getModelWithUrl:[NSURL URLWithString:VIDEO_URL(++ _pageCount)] andByHandle:^(NSMutableArray *arr) {
+    [ShareManger getModelWithUrl:[NSURL URLWithString:HOME_VIDEO_URL(++ _pageCount)] andByHandle:^(NSMutableArray *arr) {
         if (_pageCount == 2) {
 //            [arr removeObjectAtIndex:0];
             [arr removeObjectAtIndex:0];
@@ -338,7 +338,7 @@
         
         sself.onePlayer = [[OnePlayer onePlayer]initWithMyUrl:[NSURL URLWithString:urlStr] addToView:imgView];
         //显示进度占位
-        [[PersistManger defoutManger]showProgressHUDToView:imgView overTimeByHandle:^{
+        [[ShareManger defoutManger]showProgressHUDToView:imgView overTimeByHandle:^{
             self.isPlayed = YES;
             self.isPlaying = NO;
             self.isPlayIndex = -1;
@@ -352,7 +352,7 @@
         sself.onePlayer.delegate = sself;
         
         //隐藏音频小视窗window
-        [PersistManger hidenSmallWindow];
+        [ShareManger hidenSmallWindow];
         
         
         //如果小窗口视频正在播放，移除小窗口
@@ -372,7 +372,7 @@
         [_onePlayer.maskDic removeAllObjects];
         
         //提示网络
-        [[PersistManger defoutManger] judgeNetStatusAndAlert];
+        [[ShareManger defoutManger] judgeNetStatusAndAlert];
         
 //        [self.tableView reloadData];
     };
@@ -427,7 +427,7 @@
 -(void)playBegin
 {
     //隐藏占位进度
-    [[PersistManger defoutManger]hideProgressHUD];
+    [[ShareManger defoutManger]hideProgressHUD];
 }
 
 -(void)playFinished
@@ -459,7 +459,7 @@
 
 -(void)playFailed
 {
-    [[PersistManger defoutManger]hideProgressHUD];
+    [[ShareManger defoutManger]hideProgressHUD];
     
     VideoTableViewCell * cell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_isPlayIndex inSection:0]];
     

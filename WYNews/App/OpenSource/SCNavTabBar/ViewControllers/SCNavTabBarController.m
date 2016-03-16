@@ -228,73 +228,73 @@
     if (!allLoad) {
         switch (index) {
             case 1:
-                if (![PersistManger isMarkedWithMark:NSStringFromClass([ImageTableViewController class])]) {
+                if (![ShareManger isMarkedWithMark:NSStringFromClass([ImageTableViewController class])]) {
                     
                     ImageTableViewController * imgTVC=[[ImageTableViewController alloc]initWithStyle:(UITableViewStyleGrouped)];
                     
                     [self addViewController:imgTVC atIndex:1];
                     
-                    [PersistManger setMarkWithMark:NSStringFromClass([ImageTableViewController class])];
+                    [ShareManger setMarkWithMark:NSStringFromClass([ImageTableViewController class])];
                 }
                 break;
             case 2:
-                if (![PersistManger isMarkedWithMark:NSStringFromClass([FashionTableViewController class])]) {
+                if (![ShareManger isMarkedWithMark:NSStringFromClass([FashionTableViewController class])]) {
                     
                     FashionTableViewController * fashionTVC=[[FashionTableViewController alloc]initWithStyle:(UITableViewStyleGrouped)];
                     
                     [self addViewController:fashionTVC atIndex:2];
                     
-                    [PersistManger setMarkWithMark:NSStringFromClass([FashionTableViewController class])];
+                    [ShareManger setMarkWithMark:NSStringFromClass([FashionTableViewController class])];
                 }
                 break;
             case 3:
-                if (![PersistManger isMarkedWithMark:NSStringFromClass([MilitaryTableViewController class])]) {
+                if (![ShareManger isMarkedWithMark:NSStringFromClass([MilitaryTableViewController class])]) {
                     
                     MilitaryTableViewController * militaryTVC=[[MilitaryTableViewController alloc]initWithStyle:(UITableViewStyleGrouped)];
                     
                     [self addViewController:militaryTVC atIndex:3];
                     
-                    [PersistManger setMarkWithMark:NSStringFromClass([MilitaryTableViewController class])];
+                    [ShareManger setMarkWithMark:NSStringFromClass([MilitaryTableViewController class])];
                 }
                 break;
             case 4:
-                if (![PersistManger isMarkedWithMark:NSStringFromClass([EmotionTableViewController class])]) {
+                if (![ShareManger isMarkedWithMark:NSStringFromClass([EmotionTableViewController class])]) {
                     
                     EmotionTableViewController * emotionTVC=[[EmotionTableViewController alloc]initWithStyle:(UITableViewStyleGrouped)];
                     
                     [self addViewController:emotionTVC atIndex:4];
                     
-                    [PersistManger setMarkWithMark:NSStringFromClass([EmotionTableViewController class])];
+                    [ShareManger setMarkWithMark:NSStringFromClass([EmotionTableViewController class])];
                 }
                 break;
             case 5:
-                if (![PersistManger isMarkedWithMark:NSStringFromClass([BookTableViewController class])]) {
+                if (![ShareManger isMarkedWithMark:NSStringFromClass([BookTableViewController class])]) {
                     
                     BookTableViewController * bookTVC=[[BookTableViewController alloc]initWithStyle:(UITableViewStyleGrouped)];
                     
                     [self addViewController:bookTVC atIndex:5];
                     
-                    [PersistManger setMarkWithMark:NSStringFromClass([BookTableViewController class])];
+                    [ShareManger setMarkWithMark:NSStringFromClass([BookTableViewController class])];
                 }
                 break;
             case 6:
-                if (![PersistManger isMarkedWithMark:NSStringFromClass([FunnyTableViewController class])]) {
+                if (![ShareManger isMarkedWithMark:NSStringFromClass([FunnyTableViewController class])]) {
                     
                     FunnyTableViewController * funnyTVC=[[FunnyTableViewController alloc]initWithStyle:(UITableViewStyleGrouped)];
                     
                     [self addViewController:funnyTVC atIndex:6];
                     
-                    [PersistManger setMarkWithMark:NSStringFromClass([FunnyTableViewController class])];
+                    [ShareManger setMarkWithMark:NSStringFromClass([FunnyTableViewController class])];
                 }
                 break;
             case 7:
-                if (![PersistManger isMarkedWithMark:NSStringFromClass([EntertainTableViewController class])]) {
+                if (![ShareManger isMarkedWithMark:NSStringFromClass([EntertainTableViewController class])]) {
                     
                     EntertainTableViewController * entertainTVC=[[EntertainTableViewController alloc]initWithStyle:(UITableViewStyleGrouped)];
                     
                     [self addViewController:entertainTVC atIndex:7];
                     
-                    [PersistManger setMarkWithMark:NSStringFromClass([EntertainTableViewController class])];
+                    [ShareManger setMarkWithMark:NSStringFromClass([EntertainTableViewController class])];
                 }
                 break;
             default:

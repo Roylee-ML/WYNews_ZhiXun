@@ -52,7 +52,7 @@
     [self replaceCurrentItemWithPlayerItem:[self creatPlayerItemWithMyUrl:url]];
 
     //提示网络
-//    [[PersistManger defoutManger] judgeNetStatusAndAlert];
+//    [[ShareManger defoutManger] judgeNetStatusAndAlert];
     self.isPlyed = NO;
     self.failPlay = NO;
     
@@ -591,12 +591,12 @@
         [playListVC setupPlayPauseBTImg];
     }else{
         //获取数据
-        [PersistManger getFMPlayingDataWithUrl:smallWD.docid andByHandle:^(id model) {
+        [ShareManger getFMPlayingDataWithUrl:smallWD.docid andByHandle:^(id model) {
             FMPlayingModel * playModel = model;
             playListVC.playingModel = playModel;
             
             //获取列表数据
-            [PersistManger getFMPlayListDataWithUrl:playModel.tid page:1 andByHandle:^(NSArray *arr) {
+            [ShareManger getFMPlayListDataWithUrl:playModel.tid page:1 andByHandle:^(NSArray *arr) {
                 
                 /*****设置播放页面的属性******/
                 

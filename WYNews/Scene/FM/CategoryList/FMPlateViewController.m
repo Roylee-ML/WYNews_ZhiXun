@@ -26,7 +26,7 @@
 -(instancetype)init
 {
     if ([super init]) {
-//        [PersistManger defoutManger].showDelegate = self;
+//        [ShareManger defoutManger].showDelegate = self;
     }
     return self;
 }
@@ -73,7 +73,7 @@
     }
     
     //设置导航栏视图
-    [[PersistManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
+    [[ShareManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
     
     //创建返回按钮
     self.backBT = [[UIButton alloc]initWithFrame:CGRectMake(10, STATUS_HEIGHT+SELF_WIDTH/80, SELF_WIDTH*1.0/15, SELF_WIDTH*1.0/15)];
@@ -93,7 +93,7 @@
         self.outTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(showNetWorkBad) userInfo:nil repeats:NO];
         
         //请求数据
-        [PersistManger getFMCateListDataWithUrl:_model.cid page:1 andByHandel:^(NSArray *arr) {
+        [ShareManger getFMCateListDataWithUrl:_model.cid page:1 andByHandel:^(NSArray *arr) {
             if (!self.dataArray) {
                 self.dataArray = [@[] mutableCopy];
             }
@@ -187,7 +187,7 @@
     [[OnePlayer onePlayer] pause];
     
     //提示网络
-    [[PersistManger defoutManger] judgeNetStatusAndAlert];
+    [[ShareManger defoutManger] judgeNetStatusAndAlert];
     
     FMCateListTableViewCell * cell = (FMCateListTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     
@@ -202,13 +202,13 @@
     playListVC.dbDocidKey = model.docid;
     [playListVC.animateView resetAnimateAndPause];
     
-    [PersistManger getFMPlayingDataWithUrl:model.docid andByHandle:^(id model) {
+    [ShareManger getFMPlayingDataWithUrl:model.docid andByHandle:^(id model) {
         FMPlayingModel * playModel = model;
         
         playListVC.playingModel = playModel;
         
         //获取列表数据
-        [PersistManger getFMPlayListDataWithUrl:playModel.tid page:1 andByHandle:^(NSArray *arr) {
+        [ShareManger getFMPlayListDataWithUrl:playModel.tid page:1 andByHandle:^(NSArray *arr) {
             playListVC.listModelArray = [arr mutableCopy];
             
             [playListVC.listTableView reloadData];
@@ -247,13 +247,13 @@
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:BackAudioMark object:nil];
-    [[PersistManger defoutManger]removeHUD];
+    [[ShareManger defoutManger]removeHUD];
 }
 
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self name:BackAudioMark object:nil];
-    [[PersistManger defoutManger]removeHUD];
+    [[ShareManger defoutManger]removeHUD];
 }
 
 /*

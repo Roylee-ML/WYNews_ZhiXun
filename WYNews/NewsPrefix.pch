@@ -14,7 +14,7 @@
 
 #ifdef __OBJC__
 
-#import "PersistManger.h"
+#import "ShareManger.h"
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 #import "CommonDefined.h"
@@ -28,6 +28,8 @@
 #import "NSString+Common.h"
 #import "NSDate+Category.h"
 #import "UIControl+BlockAction.h"
+#import "Masonry.h"
+#import "UIImageView+WebCache.h"
 
 #endif
 

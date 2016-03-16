@@ -10,6 +10,7 @@
 #import "VideoStatusLayout.h"
 
 // 这里应该给尺寸做适配
+#define kVideoCellTopMargin     7      // cell 上方灰色留白
 #define kVideoLeftPadding       10.0
 #define kTitleViewTopMargin     6      // 标题顶部留白
 #define kTopViewTitleHeight     40     // 标题
@@ -17,7 +18,6 @@
 #define kPlayViewTopInset       8
 #define kPlayViewHeight         (kScreenWidth - 2 *kVideoLeftPadding) * 9/16
 #define kBottomToolbarHeight    55     // cell 下方工具栏高度
-#define kToolbarBottomMargin    7      // cell 下方灰色留白
 
 @interface MVideo : MTLModel<MTLJSONSerializing>
 
@@ -41,7 +41,7 @@
 @property (nonatomic, assign) CGFloat videoTop;
 @property (nonatomic, assign) CGFloat videoHeight;
 @property (nonatomic, assign) CGFloat bottomBarHeight;
-@property (nonatomic, assign) CGFloat marginBottom;
+@property (nonatomic, assign) CGFloat marginTop;
 @property (nonatomic, assign) CGFloat cellHeight;
 @property (nonatomic, assign) CGFloat containerHeight;
 // video status layout
@@ -52,6 +52,39 @@
 @end
 
 
+
+// 顶部视频种类
+@interface MVideoSort : MTLModel<MTLJSONSerializing>
+
+@property (nonatomic, strong) NSString * sort_id;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSString * imageUrl;
+
+@end
+
+
+
+
+// 主页视频
+@interface MHomeVideoList : MTLModel<MTLJSONSerializing>
+
+@property (nonatomic, strong) NSString * homeSort_id;
+@property (nonatomic, strong) NSArray * videoSortList;
+@property (nonatomic, strong) NSMutableArray * videoList;
+@property (nonatomic, assign) int currentPage;
+
+- (instancetype)initWithVideoList:(NSMutableArray *)videoList;
+
+- (void)configMHomeVideoListWithJsonDic:(NSDictionary *)jsonDic;
+
+@end
+
+
+
+
+
+
+// 分类视频
 @interface MVideoList : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, strong) NSMutableArray * videoList;
@@ -62,3 +95,9 @@
 - (void)configMVideoListWithJsonDic:(NSDictionary *)jsonDic;
 
 @end
+
+
+
+
+
+

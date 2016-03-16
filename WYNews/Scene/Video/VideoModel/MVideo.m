@@ -12,17 +12,13 @@
 
 @implementation MVideo
 
-- (NSString *)description {
-    return [NSString stringWithFormat:@"title = %@ content = %@      titletop = %.2f title_h = %.2f content_h = %.2f video_h = %.2f bottonbar_h = %.2f cotent_h = %.2f cell_h =%.2f",_title,_content,_titleTop,_titleHeight,_contentHeight,_videoHeight,_bottomBarHeight,_containerHeight,_cellHeight];
-}
-
 - (instancetype)init
 {
     if (self == [super init]) {
         self.statusLayout = [[VideoStatusLayout alloc]init];
         self.videoHeight = kPlayViewHeight;
         self.bottomBarHeight = kBottomToolbarHeight;
-        self.marginBottom = kToolbarBottomMargin;
+        self.marginTop = kVideoCellTopMargin;
     }
     return self;
 }
@@ -52,10 +48,93 @@
     }
     self.videoTop = _titleTop + _titleHeight + _contentHeight + kPlayViewTopInset;
     self.containerHeight = _videoTop + _videoHeight + _bottomBarHeight;
-    self.cellHeight = _containerHeight + _marginBottom;
+    self.cellHeight = _marginTop + _containerHeight;
 }
 
 @end
+
+
+
+
+@implementation MVideoSort
+
++ (NSDictionary *) JSONKeyPathsByPropertyKey {
+    return @{
+             @"sort_id":@"sid",
+             @"imageUrl":@"imgsrc"
+             };
+}
+
+@end
+
+
+
+@implementation MHomeVideoList
+
+- (instancetype)initWithVideoList:(NSMutableArray *)videoList
+{
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    self.videoList = videoList;
+    self.currentPage = 0;
+    return self;
+}
+
++ (NSDictionary *) JSONKeyPathsByPropertyKey {
+    return @{
+             @"homeSort_id":@"videoHomeSid",
+             @"videoSortList":@"videoSidList",
+             };
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key {
+    if ([key isEqualToString:@"videoList"]) {
+        NSArray * videoList = value;
+        for (MVideo * video in videoList) {
+            [video layout];
+        }
+        _videoList = value;
+    }else {
+        [super setValue:value forKey:key];
+    }
+}
+
++ (NSValueTransformer *) videoSortListJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MVideoSort.class];
+}
+
++ (NSValueTransformer *) videoListJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MVideo.class];
+}
+
+- (void)configMHomeVideoListWithJsonDic:(NSDictionary *)jsonDic
+{
+    int currentPage = self.currentPage;
+    MHomeVideoList * videoList = nil;
+    if (jsonDic[@"videoList"] && [jsonDic[@"videoList"] isKindOfClass:NSArray.class]) {
+        videoList = [MTLJSONAdapter modelOfClass:MHomeVideoList.class fromJSONDictionary:jsonDic error:nil];
+    }
+    if (currentPage == 0) {
+        self.videoList = videoList.videoList;
+    }else {
+        [self.videoList addObjectsFromArray:videoList.videoList];
+    }
+    currentPage ++;
+    self.currentPage = currentPage;
+    // sort list
+    self.videoSortList = videoList.videoSortList;
+    self.homeSort_id = videoList.homeSort_id;
+}
+
+
+@end
+
+
+
 
 
 
@@ -73,8 +152,9 @@
 }
 
 + (NSDictionary *) JSONKeyPathsByPropertyKey {
+    NSString * videoSid = [ShareManger defoutManger].currentVideoSid;
     return @{
-             @"videoList":@"V9LG4B3A0"  // 网易给的数据
+             @"videoList":videoSid,
              };
 }
 
@@ -99,7 +179,8 @@
 {
     int currentPage = self.currentPage;
     MVideoList * videoList = nil;
-    if (jsonDic[@"V9LG4B3A0"] && [jsonDic[@"V9LG4B3A0"] isKindOfClass:NSArray.class]) {
+    NSString * sort_id = [ShareManger defoutManger].currentVideoSid;
+    if (jsonDic[sort_id] && [jsonDic[sort_id] isKindOfClass:NSArray.class]) {
         videoList = [MTLJSONAdapter modelOfClass:MVideoList.class fromJSONDictionary:jsonDic error:nil];
     }
     if (currentPage == 0) {
@@ -113,6 +194,10 @@
 
 
 @end
+
+
+
+
 
 
 

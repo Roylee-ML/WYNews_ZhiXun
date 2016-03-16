@@ -110,7 +110,7 @@ typedef void(^ProgressBlock)(CGFloat percentage);
     }
     
     //改变播放进度
-    if ([PersistManger defoutManger].isPlayingIndex >= 0) {  //表示音乐正在播放再次进入此页面
+    if ([ShareManger defoutManger].isPlayingIndex >= 0) {  //表示音乐正在播放再次进入此页面
         [[OnePlayer onePlayer]changePlayProgressByHandle:^(CGFloat percentage) {
             self.progressSlider.value = percentage;
         }];
@@ -346,8 +346,8 @@ typedef void(^ProgressBlock)(CGFloat percentage);
     [self setupPlayPauseBTImageWith:[OnePlayer onePlayer].isPlaying];
     [self showControllView];
     
-    if (![PersistManger defoutManger].isPlayCollection) {
-        [PersistManger defoutManger].isPlayCollection = YES;
+    if (![ShareManger defoutManger].isPlayCollection) {
+        [ShareManger defoutManger].isPlayCollection = YES;
     }
 }
 
@@ -502,7 +502,7 @@ typedef void(^ProgressBlock)(CGFloat percentage);
         }
         
         //删除下载记录
-        [[PersistManger defoutManger]deleteDownloadMarkWith:playingModel.docid];
+        [[ShareManger defoutManger]deleteDownloadMarkWith:playingModel.docid];
         
         //更新数据库
         [DataBaseHandle insertDBWWithArra:_collectionArray byID:DownLoadKey];
@@ -539,11 +539,11 @@ typedef void(^ProgressBlock)(CGFloat percentage);
     [self resignFirstResponder];
     
     if ([OnePlayer onePlayer].isPlaying) {
-        [PersistManger defoutManger].isPlayingIndex = _isPlayingIndex;
+        [ShareManger defoutManger].isPlayingIndex = _isPlayingIndex;
     }
     
-    if (![PersistManger defoutManger].isPlayCollection && [OnePlayer onePlayer].isPlaying) {
-        [PersistManger showPlayingSmallWindow];
+    if (![ShareManger defoutManger].isPlayCollection && [OnePlayer onePlayer].isPlaying) {
+        [ShareManger showPlayingSmallWindow];
     }
     
 //    [OnePlayer onePlayer].delegate = nil;

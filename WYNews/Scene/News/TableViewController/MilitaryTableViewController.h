@@ -11,9 +11,9 @@
 #import "ImageCell.h"
 #import "DataModel.h"
 #import "UIImageView+WebCache.h"
-#import "SDRefresh.h"
 #import "CommonDetailViewController.h"
 #import "PhotosetDetailController.h"
+
 @interface MilitaryTableViewController : UITableViewController
 @property(nonatomic,strong) NSMutableArray * array;
 @property(nonatomic,strong) NSMutableArray * oneArray;//存储第一个model

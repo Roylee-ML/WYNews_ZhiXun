@@ -31,7 +31,6 @@ typedef  void(^HandleBlock)();
 @property (nonatomic,strong) UIImageView * headImgView;
 @property (nonatomic,strong) FMSubModel * topModel;
 //@property (nonatomic,strong) MBProgressHUD * hud;
-//@property (nonatomic,strong) SDRefreshHeaderView * refreshHeader;
 @property (nonatomic,strong) NSTimer * outTimer;
 
 
@@ -42,8 +41,8 @@ typedef  void(^HandleBlock)();
 -(instancetype)init
 {
     if ([super init]) {
-        //        [PersistManger defoutManger].showDelegate = self;
-        [PersistManger defoutManger].isPlayingIndex = -1;
+        //        [ShareManger defoutManger].showDelegate = self;
+        [ShareManger defoutManger].isPlayingIndex = -1;
     }
     return self;
 }
@@ -94,10 +93,10 @@ typedef  void(^HandleBlock)();
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //设置播放电台代理
-    [PersistManger defoutManger].playDelegate =self;
+    [ShareManger defoutManger].playDelegate =self;
     
     //设置导航栏视图
-    [[PersistManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
+    [[ShareManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@"title1"] andBGImg:[UIImage imageNamed:NC_IMG]];
     //    self.navigationController.navigationBar.alpha = 0;
     self.navigationController.navigationBar.translucent = YES;
     
@@ -123,8 +122,8 @@ typedef  void(^HandleBlock)();
     
     collectionVC.hidesBottomBarWhenPushed = YES;
     
-    if ([PersistManger defoutManger].isPlayingIndex >= 0) {
-        collectionVC.isPlayingIndex = [PersistManger defoutManger].isPlayingIndex;
+    if ([ShareManger defoutManger].isPlayingIndex >= 0) {
+        collectionVC.isPlayingIndex = [ShareManger defoutManger].isPlayingIndex;
     }
     
     [self.navigationController pushViewController:collectionVC animated:YES];
@@ -175,7 +174,7 @@ typedef  void(^HandleBlock)();
 {
     //加载数据
     __weak FMViewController * sself = self;
-    [PersistManger getFMDataWithUrl:[NSURL URLWithString:FM_URL] andByHandle:^(NSDictionary *dic) {
+    [ShareManger getFMDataWithUrl:[NSURL URLWithString:FM_URL] andByHandle:^(NSDictionary *dic) {
         
         if (dic.count != 0) {
             //设置头图图片
@@ -237,7 +236,7 @@ typedef  void(^HandleBlock)();
     [[OnePlayer onePlayer] pause];
     
     //提示网络
-    [[PersistManger defoutManger] judgeNetStatusAndAlert];
+    [[ShareManger defoutManger] judgeNetStatusAndAlert];
     
     FMPlayListViewController * playListVC = [[FMPlayListViewController alloc]init];
     playListVC.cateName = _topModel.tname;
@@ -246,13 +245,13 @@ typedef  void(^HandleBlock)();
     [playListVC.animateView resetAnimateAndPause];
     
     //设置数据库，每次点击不同唱片，之前的数据库清空。
-    NSString * ddocid = [PersistManger getMark];
+    NSString * ddocid = [ShareManger getMark];
     if (![_topModel.docid isEqualToString:ddocid]) {
         [DataBaseHandle deleteDataByTitleID:ddocid];
         
-        [PersistManger setMark:_topModel.docid];
+        [ShareManger setMark:_topModel.docid];
         
-        [PersistManger setRefreshPage:1];
+        [ShareManger setRefreshPage:1];
     }
     
     NSArray * dataArr = [DataBaseHandle getDataArrayWithTitleid:_topModel.docid];
@@ -263,11 +262,11 @@ typedef  void(^HandleBlock)();
         
         [[OnePlayer onePlayer] playAudioWithTid:playingModel.tid andUrl:playingModel.url_mp4 toController:playListVC];
         
-        //        [[PersistManger defoutManger]hideProgressHUD];
+        //        [[ShareManger defoutManger]hideProgressHUD];
     
     }else{
         //获取数据
-        [PersistManger getFMPlayingDataWithUrl:_topModel.docid andByHandle:^(id model) {
+        [ShareManger getFMPlayingDataWithUrl:_topModel.docid andByHandle:^(id model) {
             FMPlayingModel * playModel = model;
             
             playListVC.playingModel = playModel;
@@ -275,7 +274,7 @@ typedef  void(^HandleBlock)();
             [DataBaseHandle insertDBWWithArra:@[playModel] byID:_topModel.tname];
             
             //获取列表数据
-            [PersistManger getFMPlayListDataWithUrl:playModel.tid page:1 andByHandle:^(NSArray *arr) {
+            [ShareManger getFMPlayListDataWithUrl:playModel.tid page:1 andByHandle:^(NSArray *arr) {
                 playListVC.listModelArray = [arr mutableCopy];
                 
                 [DataBaseHandle insertDBWWithArra:arr byID:_topModel.docid];
@@ -366,22 +365,22 @@ typedef  void(^HandleBlock)();
     [playListVC.animateView resetAnimateAndPause];
     
     //设置数据库，每次点击不同唱片，之前的数据库清空。
-    NSString * ddocid = [PersistManger getMark];
+    NSString * ddocid = [ShareManger getMark];
     if (![docid isEqualToString:ddocid]) {
         [DataBaseHandle deleteDataByTitleID:ddocid];
         
-        [PersistManger setMark:docid];
+        [ShareManger setMark:docid];
         
-        [PersistManger setRefreshPage:1];
+        [ShareManger setRefreshPage:1];
     }
     
-//[[PersistManger defoutManger]showProgressHUDToView:playListVC.view overTimeByHandle:^{
+//[[ShareManger defoutManger]showProgressHUDToView:playListVC.view overTimeByHandle:^{
     
 //}];
     NSLog(@"点击了button......");
     
     //提示网络
-    [[PersistManger defoutManger] judgeNetStatusAndAlert];
+    [[ShareManger defoutManger] judgeNetStatusAndAlert];
     
     NSArray * dataArr = [DataBaseHandle getDataArrayWithTitleid:docid];
     if (dataArr) {
@@ -391,22 +390,22 @@ typedef  void(^HandleBlock)();
         
         [[OnePlayer onePlayer] playAudioWithTid:playingModel.tid andUrl:playingModel.url_mp4 toController:playListVC];
         
-//        [[PersistManger defoutManger]hideProgressHUD];
+//        [[ShareManger defoutManger]hideProgressHUD];
         
     }else{
         //获取数据
-        [PersistManger getFMPlayingDataWithUrl:docid andByHandle:^(id model) {
+        [ShareManger getFMPlayingDataWithUrl:docid andByHandle:^(id model) {
             FMPlayingModel * playingModle = (FMPlayingModel*)model;
             
             //获取列表数据
-            [PersistManger getFMPlayListDataWithUrl:playingModle.tid page:1 andByHandle:^(NSArray *arr) {
+            [ShareManger getFMPlayListDataWithUrl:playingModle.tid page:1 andByHandle:^(NSArray *arr) {
                 playListVC.listModelArray = [arr mutableCopy];
                 
                 if (arr.count != 0) { //避免后台数据更新时palyingModel没有更新。
                     FMListModel * model = arr[0];
                     
                     //获取第一个音频
-                    [PersistManger getFMPlayingDataWithUrl:model.docid andByHandle:^(id model) {
+                    [ShareManger getFMPlayingDataWithUrl:model.docid andByHandle:^(id model) {
                         if (model) {
                             FMPlayingModel * fmPlayingModle = model;
                             [DataBaseHandle insertDBWWithArra:@[fmPlayingModle] byID:tname];
@@ -451,7 +450,7 @@ typedef  void(^HandleBlock)();
                      
                  */
                     
-                    //                [[PersistManger defoutManger]hideProgressHUD];
+                    //                [[ShareManger defoutManger]hideProgressHUD];
             }];
         }];
     }

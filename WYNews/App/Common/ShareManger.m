@@ -1,12 +1,12 @@
 //
-//  PersistManger.m
+//  ShareManger.m
 //  WYNews
 //
 //  Created by lanou3g on 15/5/28.
 //  Copyright (c) 2015年 lanou3g. All rights reserved.
 //
 
-#import "PersistManger.h"
+#import "ShareManger.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "CustomProgressView.h"
@@ -21,14 +21,12 @@
 
 typedef void(^AlertBlock)();
 
-@interface PersistManger()
+@interface ShareManger()
 
 //@property (nonatomic,strong) NSMutableDictionary * loadMarkDic; //记录存储新闻页面添加controller的个数
 
 @property (nonatomic,copy) RefreshBlock refreshBlock;
 @property (nonatomic,copy) RefreshHDBlock refreshHDBlock;
-@property (nonatomic,strong) SDRefreshFooterView * refreshFooter;
-@property (nonatomic,strong) SDRefreshHeaderView * refreshHeader;
 @property (nonatomic,strong) UIAlertView * alert;
 @property (nonatomic,strong) MBProgressHUD * hud;
 @property (nonatomic,assign) BOOL hudHide;
@@ -42,23 +40,24 @@ typedef void(^AlertBlock)();
 
 @end
 
-@implementation PersistManger
+@implementation ShareManger
 
 -(instancetype)init
 {
     if ([super init]) {
         //保证多任务恢复下载时的临时存储路径各不相同。允许连续创建50个可恢复下载的对象。
         self.pathNumArray = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31",@"32",@"33",@"34",@"35",@"36",@"37",@"38",@"39",@"40",@"41",@"42",@"43",@"44",@"45",@"46",@"47",@"48",@"49",@"50"] mutableCopy];
+        self.currentVideoSid = @"";
     }
     return self;
 }
 
-+(PersistManger*)defoutManger
++(ShareManger*)defoutManger
 {
-    static PersistManger * manger = nil;
+    static ShareManger * manger = nil;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        manger = [[PersistManger alloc]init];
+        manger = [[ShareManger alloc]init];
     });
     return manger;
 }
@@ -90,11 +89,37 @@ typedef void(^AlertBlock)();
     });
 }
 
-+ (void)getVideoListWithUrl:(NSURL*)url
-                 mVideoList:(MVideoList *)videoList
-         complicationHandle:(DataBlock)result
-                errorHandle:(void(^)(NSError * error))errorHandle
++ (void)getHomeVideoListWithPage:(int)page
+                      mVideoList:(MHomeVideoList *)videoList
+              complicationHandle:(DataBlock)result
+                     errorHandle:(void(^)(NSError * error))errorHandle
 {
+    NSURL * url = [NSURL URLWithString:HOME_VIDEO_URL(page)];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        NSURLRequest * request = [NSURLRequest requestWithURL:url];
+        NSError * error = nil;
+        NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        ;
+        NSDictionary * jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        [videoList configMHomeVideoListWithJsonDic:jsonDic];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (nil != error) {
+                errorHandle(error);
+            }else {
+                result(videoList);
+            }
+        });
+    });
+}
+
++ (void)getVideoListWithSortID:(NSString *)s_id
+                          page:(int)page
+                    mVideoList:(MVideoList *)videoList
+            complicationHandle:(DataBlock)result
+                   errorHandle:(void(^)(NSError * error))errorHandle
+{
+    [ShareManger defoutManger].currentVideoSid = s_id;
+    NSURL * url = [NSURL URLWithString:VIDEO_URL(s_id,page)];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         NSError * error = nil;
@@ -307,7 +332,7 @@ typedef void(^AlertBlock)();
         ncImgView.image = bg_img;
         
         //创建清除缓存按钮
-        [[PersistManger defoutManger]setupClearButtonToView:ncImgView];
+        [[ShareManger defoutManger]setupClearButtonToView:ncImgView];
         
         [NC.view addSubview:ncImgView];
         
@@ -349,7 +374,7 @@ typedef void(^AlertBlock)();
         
         if (!_alertBlock) {
             self.alertBlock = ^{
-                [PersistManger clearAlertShowByVC:viewController];
+                [ShareManger clearAlertShowByVC:viewController];
             };
         }
         
@@ -421,7 +446,7 @@ typedef void(^AlertBlock)();
     }];
     
     
-    NSString * fileSize = [PersistManger getFileSizeInString];
+    NSString * fileSize = [ShareManger getFileSizeInString];
     
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"您确定清除共计%@缓存？",fileSize] preferredStyle:UIAlertControllerStyleAlert];
     
@@ -436,7 +461,7 @@ typedef void(^AlertBlock)();
 //获取字节字符串格式
 +(NSString*)getFileSizeInString
 {
-    NSUInteger size = [PersistManger getFileSizeAtPath:[DataBaseHandle databaseFilePath]];
+    NSUInteger size = [ShareManger getFileSizeAtPath:[DataBaseHandle databaseFilePath]];
     NSString * fileSize = size/(1024.0*1024.0)>=0.05?[NSString stringWithFormat:@"%.2fM",size/(1024.0*1024.0)]:@"0M";
     return fileSize;
 }
@@ -541,7 +566,7 @@ typedef void(^AlertBlock)();
 //判断标记是否存在
 +(BOOL)isMarkedWithMark:(NSString*)mark
 {
-    AppDelegate * app = [UIApplication sharedApplication].delegate;
+    AppDelegate * app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     id ismark = [app.isMarkedDic objectForKey:mark];
     if (ismark) {
         return YES;
@@ -553,71 +578,23 @@ typedef void(^AlertBlock)();
 //存储音乐刷新页数
 +(void)setRefreshPage:(NSInteger)page
 {
-    AppDelegate * app = [UIApplication sharedApplication].delegate;
+    AppDelegate * app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [app.isMarkedDic setObject:@(page) forKey:@"FMRefreshpPage"];
 }
 
 //获取音乐刷新页数
 +(NSInteger)getRefreshPage
 {
-    AppDelegate * app = [UIApplication sharedApplication].delegate;
+    AppDelegate * app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     NSInteger page = [[app.isMarkedDic objectForKey:@"FMRefreshpPage"]integerValue];
     return page;
 }
 
-//下拉刷新
--(void)refreshHeaderToView:(UIScrollView*)scrollView andEndByHandle:(RefreshHDBlock)hd_handle
-{
-    __weak PersistManger * sself = self;
-    self.refreshHeader = [[SDRefreshHeaderView alloc]init];
-    
-    _refreshHeader.isEffectedByNavigationController = NO;
-    
-    [_refreshHeader addToScrollView:scrollView];
-    _refreshHeader.beginRefreshingOperation = ^{
-        hd_handle();
-        
-        //定时结束刷新
-        [sself performSelector:@selector(endRefreshHeader) withObject:nil afterDelay:3.0];
-    };
-}
-
--(void)endRefreshHeader
-{
-    [_refreshHeader endRefreshing];
-}
-
-//上拉加载
--(void)refreshFooterToView:(UIScrollView*)scroollView andEndByHandle:(RefreshBlock)handle
-{
-    __weak PersistManger * sself = self;
-    self.refreshFooter = [[SDRefreshFooterView alloc]init];
-    [_refreshFooter addToScrollView:scroollView];
-    _refreshFooter.beginRefreshingOperation = ^{
-        handle();
-        
-        //定时结束刷新
-        [sself performSelector:@selector(endRefreshFooter) withObject:nil afterDelay:3.0];
-    };
-}
-
--(void)endRefreshFooter
-{
-    [_refreshFooter endRefreshing];
-}
-
-//移除进度条
--(void)removeHUD
-{
-    [_refreshFooter removeFromSuperview];
-    _refreshFooter = nil;
-}
-
 //判断设备网络
 -(void)judgeNetStatusAndAlert
 {
-    NSString * state = [PersistManger networkingStatusFromStatebar];
+    NSString * state = [ShareManger networkingStatusFromStatebar];
     
     if (![state isEqualToString:@"wifi"]) {
         if ([state isEqualToString:@"notReachable"]) {
@@ -752,7 +729,7 @@ typedef void(^AlertBlock)();
 {
     [self.downloadDic setObject:mark forKey:mark];
     
-    [self.downloadDic writeToFile:[PersistManger getPath] atomically:YES];
+    [self.downloadDic writeToFile:[ShareManger getPath] atomically:YES];
 }
 
 //判断记录是否存在
@@ -771,7 +748,7 @@ typedef void(^AlertBlock)();
 {
     if ([self isDownloadWith:mark]) {
         [self.downloadDic removeObjectForKey:mark];
-        [self.downloadDic writeToFile:[PersistManger getPath] atomically:YES];
+        [self.downloadDic writeToFile:[ShareManger getPath] atomically:YES];
     }
 }
 
@@ -779,7 +756,7 @@ typedef void(^AlertBlock)();
 -(void)deleteAllDownloadMark
 {
     [self.downloadDic removeAllObjects];
-    [self.downloadDic writeToFile:[PersistManger getPath] atomically:YES];
+    [self.downloadDic writeToFile:[ShareManger getPath] atomically:YES];
 }
 
 +(NSString*)getPath
@@ -792,20 +769,20 @@ typedef void(^AlertBlock)();
 
 -(void)writeToPath
 {
-    [self.downloadDic writeToFile:[PersistManger getPath] atomically:YES];
+    [self.downloadDic writeToFile:[ShareManger getPath] atomically:YES];
 }
 
 -(NSMutableDictionary*)downloadDic
 {
     if (!_downloadDic) {
         NSFileManager * fileManger = [NSFileManager defaultManager];
-        if ([fileManger fileExistsAtPath:[PersistManger getPath]]) {
+        if ([fileManger fileExistsAtPath:[ShareManger getPath]]) {
             
-            _downloadDic = [NSMutableDictionary dictionaryWithContentsOfFile:[PersistManger getPath]];
+            _downloadDic = [NSMutableDictionary dictionaryWithContentsOfFile:[ShareManger getPath]];
             
         }else{
             _downloadDic = [@{} mutableCopy];
-            [_downloadDic writeToFile:[PersistManger getPath] atomically:YES];
+            [_downloadDic writeToFile:[ShareManger getPath] atomically:YES];
             
         }
     }

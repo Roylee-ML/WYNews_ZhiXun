@@ -19,7 +19,6 @@
 @interface MilitaryTableViewController ()
 
 @property (nonatomic, strong) NSTimer *outTimer;
-@property (nonatomic, weak) SDRefreshHeaderView *refreshHeader;
 @property (nonatomic, assign) int Count;
 @property (nonatomic,strong) UIImageView * imgView;
 @property (nonatomic,strong) UILabel * titleLable;
@@ -108,7 +107,7 @@
     NSString * str=[url substringWithRange:range];
     
     __weak MilitaryTableViewController * sself = self;
-    [PersistManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray *dataArray) {
+    [ShareManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray *dataArray) {
         NSMutableArray * array=[[NSMutableArray alloc]initWithArray:dataArray];
         DataModel *model=array[0];
         if (self.oneArray.count != 0) {
@@ -186,7 +185,7 @@
     //解析数据
     
     __weak MilitaryTableViewController * sself = self;
-    [PersistManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray *dataArray) {
+    [ShareManger jsonDataUrl:url Stringkey:str andByHandle:^(NSArray *dataArray) {
         NSMutableArray * array=[[NSMutableArray alloc]initWithArray:dataArray];
         
         [sself.array addObjectsFromArray:array];

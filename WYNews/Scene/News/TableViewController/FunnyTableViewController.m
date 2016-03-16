@@ -16,7 +16,6 @@
 @interface FunnyTableViewController ()
 
 @property (nonatomic, strong) NSTimer *outTimer;
-@property (nonatomic, weak) SDRefreshHeaderView *refreshHeader;
 
 @end
 

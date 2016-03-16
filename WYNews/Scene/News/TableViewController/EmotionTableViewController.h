@@ -11,7 +11,6 @@
 #import "ImageCell.h"
 #import "DataModel.h"
 #import "UIImageView+WebCache.h"
-#import "SDRefresh.h"
 #import "PhotosetDetailController.h"
 #import "CommonDetailViewController.h"
 @interface EmotionTableViewController : UITableViewController

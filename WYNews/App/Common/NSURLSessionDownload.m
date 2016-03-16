@@ -54,9 +54,9 @@ typedef NS_ENUM(NSInteger, NSURLSessionDownloadOrder) {
     if ([super init]) {
     /*
         //保证多任务恢复下载时的临时存储路径各不相同。允许连续创建50个可恢复下载的对象。
-        int num = arc4random()%([PersistManger defoutManger].pathNumArray.count);
-        self.resumePath = [NSString stringWithFormat:@"resumTask%@.text",[PersistManger defoutManger].pathNumArray[num]];
-        [[PersistManger defoutManger].pathNumArray removeObject:[PersistManger defoutManger].pathNumArray[num]];
+        int num = arc4random()%([ShareManger defoutManger].pathNumArray.count);
+        self.resumePath = [NSString stringWithFormat:@"resumTask%@.text",[ShareManger defoutManger].pathNumArray[num]];
+        [[ShareManger defoutManger].pathNumArray removeObject:[ShareManger defoutManger].pathNumArray[num]];
     */
         //随机临时路径，保证多任务下载时，可恢复任务的临时路径不容。但仍有局限性。
         self.resumePath = [NSString stringWithFormat:@"resumTask%d.text",arc4random()%1000];

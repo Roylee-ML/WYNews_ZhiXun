@@ -14,7 +14,7 @@
 #import "OnePlayer.h"
 
 #import "MBProgressHUD.h"
-#import "PersistManger.h"
+#import "ShareManger.h"
 #define  Url @"http://c.m.163.com/nc/article/AQMGM91E00031H2L/full.html"
 #define STATUS_HEIGHT [UIApplication sharedApplication].statusBarFrame.size.height
 #define NC_HEIGHT self.navigationController.navigationBar.frame.size.height
@@ -34,24 +34,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem * backItem = [[UIBarButtonItem alloc]initWithImage:nil style:UIBarButtonItemStylePlain target:nil action:nil];
-    
-    //title必须设置空，因为item由两部分组成。
-    backItem.title = @"";
-    
-    self.navigationItem.leftBarButtonItem = backItem;
-    
+    __weak typeof(self) weakSelf = self;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
-        
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-        
-        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+        self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
     }
     
     //自定义导航栏
-    [[PersistManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@""] andBGImg:[UIImage imageNamed:NC_IMG]];
+    [[ShareManger defoutManger]setupNavigationViewToVC:self withTitleImg:[UIImage imageNamed:@""] andBGImg:[UIImage imageNamed:NC_IMG]];
     //返回按钮
-        [self backToRootView];
+    [self backToRootView];
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, NC_HEIGHT+STATUS_HEIGHT, SELF_WIDTH, SELF_HEIGHT-NC_HEIGHT)];
     
     self.webView.backgroundColor = [UIColor whiteColor];
@@ -137,7 +129,6 @@
 //返回按钮
 -(void)backToRootView
 {
-    
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(10,STATUS_HEIGHT+SELF_WIDTH/80 ,SELF_WIDTH*1.0/15 , SELF_WIDTH*1.0/15);
     backButton.clipsToBounds = YES;

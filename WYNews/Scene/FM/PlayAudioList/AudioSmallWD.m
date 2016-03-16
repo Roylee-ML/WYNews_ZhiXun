@@ -122,8 +122,8 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:BackAudioMark object:nil];
     
 //    //协议方式实现
-//    if ([[PersistManger defoutManger].showDelegate respondsToSelector:@selector(showPlayingAudioAndHidenSmallWindow)]) {
-//        [[PersistManger defoutManger].showDelegate showPlayingAudioAndHidenSmallWindow];
+//    if ([[ShareManger defoutManger].showDelegate respondsToSelector:@selector(showPlayingAudioAndHidenSmallWindow)]) {
+//        [[ShareManger defoutManger].showDelegate showPlayingAudioAndHidenSmallWindow];
 //    }
     
     NSLog(@"点击状态栏.......");

@@ -14,10 +14,9 @@
 #define TABBAR_HEIGHT self.tabBarController.tabBar.frame.size.height
 
 @interface ImageTableViewController ()
-@property (nonatomic, strong) NSTimer *outTimer;
-@property (nonatomic, weak) SDRefreshHeaderView *refreshHeader;
-@property (nonatomic, assign) NSInteger Count;
 
+@property (nonatomic, strong) NSTimer *outTimer;
+@property (nonatomic, assign) NSInteger Count;
 
 @end
 

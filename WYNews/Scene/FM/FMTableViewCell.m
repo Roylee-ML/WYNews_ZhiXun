@@ -63,6 +63,7 @@
     
     //创建标题头像图
     self.headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(SELF_HEIGHT/25, SELF_HEIGHT/50, SELF_HEIGHT*3.6/40, SELF_HEIGHT*3.6/40)];
+    _headImgView.contentMode = UIViewContentModeScaleAspectFill;
     _headImgView.backgroundColor = [UIColor grayColor];
     _headImgView.center = CGPointMake(_headImgView.center.x, _enterButton.center.y);
     _headImgView.layer.cornerRadius = _headImgView.frame.size.width/2;

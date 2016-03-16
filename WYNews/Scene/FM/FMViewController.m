@@ -218,7 +218,7 @@ typedef  void(^HandleBlock)();
     [_headView addSubview:playHeadBT];
     
     self.headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SELF_WIDTH,SELF_WIDTH*3/7)];
-    _headImgView.contentMode = UIViewContentModeScaleToFill;
+    _headImgView.contentMode = UIViewContentModeScaleAspectFill;
     _headImgView.clipsToBounds = YES;
     
     [self.headView addSubview:_headImgView];

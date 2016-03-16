@@ -139,9 +139,6 @@ typedef void(^Back)(NSArray * dataArray);
 //隐藏占位进度
 -(void)hideProgressHUD;
 
-//移除进度条
--(void)removeHUD;
-
 //添加占位图片
 -(void)placeHoderViewToView:(UIView*)view;
 

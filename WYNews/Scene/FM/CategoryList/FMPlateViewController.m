@@ -247,13 +247,11 @@
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:BackAudioMark object:nil];
-    [[ShareManger defoutManger]removeHUD];
 }
 
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self name:BackAudioMark object:nil];
-    [[ShareManger defoutManger]removeHUD];
 }
 
 /*

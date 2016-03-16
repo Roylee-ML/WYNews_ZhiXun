@@ -6,8 +6,8 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "video_list_cell_icon@2x.png"
+      "filename" : "video_btn_fullscreen@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",

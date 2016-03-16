@@ -74,11 +74,70 @@
 
 #define LINE_HEIGHT [UIScreen mainScreen].bounds.size.width/40
 
-#pragma mark --------程序进入后台通知--------
+#define RGBCOLORA(a,b,c,p)      [UIColor colorWithRed:(a)/255.0 green:(b)/255.0 blue:(c)/255.0 alpha:p]
+#define RGBCOLOR(a,b,c)          RGBCOLORA(a,b,c,1)
 
-#define kBecomeInActive @"becomeInActive"
+//屏幕frame
+#define kScreenRect             UIScreenRect()
+//屏幕宽度
+#define kScreenWidth            UIScreenSize().width
+//屏幕高度
+#define kScreenHeight           UIScreenSize().height
+//屏幕scale
+#define kScreenScale            UIScreenScale()
+//window
+#define KeyWindow               keyWindow()
+//宽高比率设置
+#define kScaleFrom_iPhone5_Desgin(_X_) (_X_ * (kScreenWidth/320))
+//左边距
+#define kPaddingLeftWidth 15.0
 
-#define kBecomeActive @"becomeActive"
+
+/**
+ Synthsize a weak or strong reference.
+ 
+ Example:
+ @weakify(self)
+ [self doSomething^{
+ @strongify(self)
+ if (!self) return;
+ ...
+ }];
+ 
+ */
+#ifndef weakify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+            #define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+        #else
+            #define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+            #define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+        #else
+            #define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+        #endif
+    #endif
+#endif
+
+#ifndef strongify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+            #define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+        #else
+            #define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+            #define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+        #else
+            #define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+        #endif
+    #endif
+#endif
+
+#define WY_DEPRECATED_IOS(_wyVersion, ...) __attribute__((deprecated("")))
 
 
 

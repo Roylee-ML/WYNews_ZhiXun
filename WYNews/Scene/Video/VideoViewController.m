@@ -62,10 +62,10 @@
         self.pageCount = 1;
         
         //注册程序进入后台通知，取消视播放
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(appBecomeInActiveStopVideo) name:kBecomeInActive object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(appBecomeInActiveStopVideo) name:UIApplicationWillResignActiveNotification object:nil];
         
         //注册回到前台通知，继续播放视频或者做其他操作
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(appBecomeActiveGoonPlay) name:kBecomeActive object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(appBecomeActiveGoonPlay) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     return self;
 }

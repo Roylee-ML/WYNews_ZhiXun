@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "OnePlayer.h"
 
 @interface AppDelegate ()
 
@@ -96,8 +97,6 @@
             }
         }
     }
-    
-    [[NSNotificationCenter defaultCenter]postNotificationName:kBecomeInActive object:nil];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -121,8 +120,6 @@
         [[UIApplication sharedApplication] endBackgroundTask:_bgTaskId];
         _bgTaskId = UIBackgroundTaskInvalid;
     }
-    
-    [[NSNotificationCenter defaultCenter]postNotificationName:kBecomeActive object:nil];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

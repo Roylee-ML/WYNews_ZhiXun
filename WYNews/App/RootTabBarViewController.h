@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "NewsViewController.h"
-#import "VideoViewController.h"
 #import "FMViewController.h"
+#import "VideoPlayControler.h"
 
 
 @interface RootTabBarViewController : UITabBarController

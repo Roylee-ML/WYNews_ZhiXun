@@ -15,10 +15,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
+#import "MVideo.h"
 #import "SDRefreshFooterView.h"
 #import "SDRefreshHeaderView.h"
 
-typedef void(^DataBlock)(NSMutableArray * arr);
+typedef void(^DataBlock)(id obj);
 typedef void(^FMDataBlock)(NSDictionary * dic);
 typedef void(^PlayBlock)(id model);
 typedef void(^RefreshBlock)();
@@ -70,6 +71,11 @@ typedef void(^Back)(NSArray * dataArray);
 //解析视频数据
 +(void)getModelWithUrl:(NSURL*)url andByHandle:(DataBlock)block;
 
++ (void)getVideoListWithUrl:(NSURL*)url
+                 mVideoList:(MVideoList *)videoList
+         complicationHandle:(DataBlock)result
+                errorHandle:(void(^)(NSError * error))errorHandle;
+
 //解析电台数据
 +(void)getFMDataWithUrl:(NSURL*)url andByHandle:(FMDataBlock)block;
 
@@ -120,6 +126,9 @@ typedef void(^Back)(NSArray * dataArray);
 
 //下拉刷新
 //-(void)refreshHeaderToView:(UIScrollView*)scrollView andEndByHandle:(RefreshHDBlock)hd_handle;
+
+//获取网路状态
++(NSString*)networkingStatusFromStatebar;
 
 //判断设备网络
 -(void)judgeNetStatusAndAlert;

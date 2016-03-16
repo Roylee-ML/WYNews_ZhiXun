@@ -33,7 +33,6 @@
 //    [self.tabBar insertSubview:view atIndex:0];
     
     [self setupViews];
-    
 }
 
 -(void)setupViews
@@ -50,7 +49,8 @@
     newsNC.tabBarItem.image = [[UIImage imageNamed:@"tabbar_news"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     newsNC.tabBarItem.selectedImage = [[[UIImage imageNamed:@"tabbar_news"]imageWithColor:[UIColor colorWithRed:165.0/255 green:42.0/255 blue:42.0/255 alpha:1]]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    VideoViewController * videoVC = [[VideoViewController alloc]init];
+//    VideoViewController * videoVC = [[VideoViewController alloc]init];
+    VideoPlayControler * videoVC = [[VideoPlayControler alloc]init];
     UINavigationController * videoNC = [[UINavigationController alloc]initWithRootViewController:videoVC];
     videoNC.tabBarItem.title = @"视频";
     NSMutableDictionary *textAttrs1 = [NSMutableDictionary dictionary];

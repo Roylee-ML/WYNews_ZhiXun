@@ -41,7 +41,7 @@
 
 #pragma mark ----视频网址----
 
-#define VIDEO_URL(page) [NSString stringWithFormat:@"http://c.m.163.com/nc/video/list/V9LG4B3A0/y/%d-10.html",(page-1)*10]
+#define VIDEO_URL(page) [NSString stringWithFormat:@"http://c.m.163.com/nc/video/list/V9LG4B3A0/y/%d-10.html",page*10]
 
 
 #pragma mark ----电台网址----

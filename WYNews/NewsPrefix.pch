@@ -22,6 +22,12 @@
 #import "MBProgressHUD.h"
 #import "DataBaseHandle.h"
 #import "MJRefresh.h"
+#import "UIColor+HexColor.h"
+#import "UIView+Frame.h"
+#import "UIView+Common.h"
+#import "NSString+Common.h"
+#import "NSDate+Category.h"
+#import "UIControl+BlockAction.h"
 
 #endif
 

@@ -11,6 +11,9 @@
 #import "MBProgressHUD.h"
 #import "CustomProgressView.h"
 #import "DataBaseHandle.h"
+#import "OnePlayer.h"
+#import "Mantle.h"
+#import "NSObject+UIAlert.h"
 
 #define SELF_WIDTH [[UIScreen mainScreen]bounds].size.width
 #define SELF_HEIGHT [[UIScreen mainScreen]bounds].size.height
@@ -82,6 +85,28 @@ typedef void(^AlertBlock)();
                 }
                 
                 block(array);
+            }
+        });
+    });
+}
+
++ (void)getVideoListWithUrl:(NSURL*)url
+                 mVideoList:(MVideoList *)videoList
+         complicationHandle:(DataBlock)result
+                errorHandle:(void(^)(NSError * error))errorHandle
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        NSURLRequest * request = [NSURLRequest requestWithURL:url];
+        NSError * error = nil;
+        NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        ;
+        NSDictionary * jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        [videoList configMVideoListWithJsonDic:jsonDic];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (nil != error) {
+                errorHandle(error);
+            }else {
+                result(videoList);
             }
         });
     });
@@ -252,7 +277,7 @@ typedef void(^AlertBlock)();
 //显示小视窗
 +(void)showPlayingSmallWindow
 {
-    AppDelegate * dele = [[UIApplication sharedApplication]delegate];
+    AppDelegate * dele = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     if (dele.smallWindow && dele.smallWindow.hidden == YES) {
         [dele.smallWindow showWindow];
     }
@@ -261,7 +286,7 @@ typedef void(^AlertBlock)();
 //隐藏小视窗
 +(void)hidenSmallWindow
 {
-    AppDelegate * dele = [[UIApplication sharedApplication]delegate];
+    AppDelegate * dele = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     if (dele.smallWindow) {
         [dele.smallWindow hideWindow];
     }
@@ -599,7 +624,7 @@ typedef void(^AlertBlock)();
             self.alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您当前的网络不给力！" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
             [_alert show];
             [self performSelector:@selector(hideAlert) withObject:nil afterDelay:1.5f];
-        }else{
+        }else {
             self.alert = [[UIAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"您当前使用的是%@网络！",state] delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
             [_alert show];
             [self performSelector:@selector(hideAlert) withObject:nil afterDelay:1.5f];
@@ -612,7 +637,6 @@ typedef void(^AlertBlock)();
     [_alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
-//获取网路状态
 +(NSString*)networkingStatusFromStatebar
 {
     UIApplication * app = [UIApplication sharedApplication];

@@ -62,7 +62,7 @@ typedef NS_ENUM(NSInteger, NSURLSessionDownloadOrder) {
         self.resumePath = [NSString stringWithFormat:@"resumTask%d.text",arc4random()%1000];
     
         //进入后台删除临时数据，不允许后台模式。
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deleteTempDataPath:) name:kBecomeInActive object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deleteTempDataPath:) name:UIApplicationWillResignActiveNotification object:nil];
         
     }
     return self;

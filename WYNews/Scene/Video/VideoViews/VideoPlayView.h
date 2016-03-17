@@ -10,10 +10,14 @@
 #import "UITapImageView.h"
 #import "AVPlayerManger.h"
 
+@interface VideoCoverImageView : UITapImageView
+@end
+
+
 @interface VideoPlayView : UIView<AVPlayerViewDelegate>
 
 @property (nonatomic, weak) AVPlayerManger * playerManger;
-@property (nonatomic, strong) UITapImageView * videoBgImgV;
+@property (nonatomic, strong) VideoCoverImageView * videoCoverImgV;
 @property (nonatomic, copy) void(^fullScreenAction)(UIButton * bt);
 @property (nonatomic, copy) void(^playVideoAction)(UIButton * bt);
 @property (nonatomic, copy) void(^playPauseAction)(UITapImageView * imgView);

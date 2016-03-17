@@ -11,14 +11,76 @@
 #import "UIImage+ImageWithColor.h"
 #import "MVideo.h"
 #import "VideoStatusLayout.h"
-#import "Masonry.h"
 #import "UIImageView+WebCache.h"
+#import "AnnularLoader.h"
 
 #define kLineProgressHeight     2.5f
+#define kLogoImageWidth         kScreenWidth *1.2/5
 
 static const CGFloat kVideoControlBarHeight = 40.0;
 static const CGFloat kVideoControlAnimationTimeinterval = 0.3;
 static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
+
+
+@interface VideoCoverImageView ()
+
+@property (nonatomic, strong) UIImageView * logoImageV;
+@property (nonatomic, strong) AnnularLoader * loader;
+
+@end
+
+@implementation VideoCoverImageView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupViews];
+    }
+    return self;
+}
+
+- (void)setupViews {
+    UIImage * image = [[UIImage imageNamed:@"video_content_logo"] imageWithColor:[UIColor colorWithHex:@"c2c2c2"]];
+    self.logoImageV = [[UIImageView alloc]initWithImage:image];
+    CGSize imageSize = image.size;
+    [self addSubview:_logoImageV];
+    [_logoImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self);
+        make.size.mas_equalTo(CGSizeMake(kLogoImageWidth, imageSize.height/imageSize.width * kLogoImageWidth));
+    }];
+}
+
+- (void)startLoader {
+    if (!_loader) {
+        self.loader = [AnnularLoader new];
+        _loader.boundsWidth = 20;
+        _loader.offset = CGPointMake((_logoImageV.left - 22) - self.width/2, 0);
+        _loader.colorArray = @[[UIColor colorWithHex:@"6e6e6e"]];
+        _loader.lineWidth = 1.0f;
+        [self addSubview:_loader];
+    }
+    self.image = [UIImage imageNamed:@"video_content_bg"];
+    _logoImageV.hidden = NO;
+    [_loader startAnimation];
+}
+
+- (void)stopLoader
+{
+    _logoImageV.hidden = YES;
+    if (_loader) {
+        [self.loader stopAnimation];
+        [_loader removeFromSuperview];
+        self.loader = nil;
+    }
+}
+
+@end
+
+
+
+
+
+
 
 @interface VideoPlayView ()
 
@@ -30,7 +92,6 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
 @property (nonatomic, strong) UIButton * fullScreenBt;
 @property (nonatomic, strong) UIButton * playBt;
 @property (nonatomic, assign) BOOL isControlBarShowing;
-@property (nonatomic, strong) MBProgressHUD * hud;
 @property (nonatomic, strong) VideoStatusLayout * videoStatus;
 
 
@@ -73,11 +134,11 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
 {
     self.clipsToBounds = YES;
     // video bg
-    self.videoBgImgV = [[UITapImageView alloc]init];
-    _videoBgImgV.backgroundColor = [UIColor whiteColor];
-    _videoBgImgV.contentMode = UIViewContentModeScaleAspectFill;
-    _videoBgImgV.clipsToBounds = YES;
-    [self addSubview:_videoBgImgV];
+    self.videoCoverImgV = [[VideoCoverImageView alloc]init];
+    _videoCoverImgV.backgroundColor = [UIColor whiteColor];
+    _videoCoverImgV.contentMode = UIViewContentModeScaleAspectFill;
+    _videoCoverImgV.clipsToBounds = YES;
+    [self addSubview:_videoCoverImgV];
     
     // slider
     [self configSliderBgView];
@@ -94,7 +155,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
     [self addSubview:_playBt];
     
     // layout
-    [_videoBgImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_videoCoverImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self);
     }];
     
@@ -196,7 +257,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
 {
     // single tap     show or hiden slider and  control play pause
     @weakify(self)
-    [_videoBgImgV addTapBlock:^(id obj) {
+    [_videoCoverImgV addTapBlock:^(id obj) {
         @strongify(self)
         [self showOrHidenVideoControlView];
     }];
@@ -204,7 +265,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
     // double click
     UITapGestureRecognizer * doubleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(playPauseAction:)];
     doubleTap.numberOfTapsRequired = 2;
-    [_videoBgImgV addGestureRecognizer:doubleTap];
+    [_videoCoverImgV addGestureRecognizer:doubleTap];
     
     // play
     [_playBt addAction:^(id sender) {
@@ -242,7 +303,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
 - (void)playPauseAction:(UITapGestureRecognizer *)ges
 {
     if (self.playPauseAction) {
-        _playPauseAction(_videoBgImgV);
+        _playPauseAction(_videoCoverImgV);
     }
 }
 
@@ -251,12 +312,11 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
     if (nil == video) {
         return;
     }
-    [_videoBgImgV sd_setImageWithURL:[NSURL URLWithString:video.thumbImgUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [_videoCoverImgV sd_setImageWithURL:[NSURL URLWithString:video.thumbImgUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
     }];
     _controlView.alpha = 0;
     _isControlBarShowing = NO;
-    _videoBgImgV.hidden = NO;
     [self refreshPlayViewByStatus:video];
 }
 
@@ -268,34 +328,32 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
         case VideoPlayStatusNormal:
             self.playBt.hidden = NO;
             self.lineProgressV.hidden = YES;
-            [self removeHud];
+            [_videoCoverImgV stopLoader];
             break;
         case VideoPlayStatusBeginPlay:
             self.playBt.hidden = YES;
             self.lineProgressV.hidden = YES;
             self.lineProgressV.width = 0;
-            [self showHud];
+            [_videoCoverImgV startLoader];;
             break;
         case VideoPlayStatusPlaying:
             self.playBt.hidden = YES;
             self.lineProgressV.hidden = NO;
-            self.videoBgImgV.hidden = YES;
-            [self.hud hide:YES];
+            [_videoCoverImgV stopLoader];
             break;
         case VideoPlayStatusPause:
             self.playBt.hidden = NO;
             self.lineProgressV.hidden = YES;
-            self.videoBgImgV.hidden = YES;
             break;
         case VideoPlayStatusEndPlay:
             self.playBt.hidden = NO;
             self.lineProgressV.hidden = YES;
-            [self removeHud];
+            [_videoCoverImgV stopLoader];
             break;
         case VideoPlayStatusFailedPlay:
             self.playBt.hidden = NO;
             self.lineProgressV.hidden = YES;
-            [self removeHud];
+            [_videoCoverImgV stopLoader];
             break;
             
         default:
@@ -336,31 +394,6 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
 - (BOOL)isSliderDragging
 {
     return _sliderView.isDragging;
-}
-
-- (void)showHud
-{
-    if (_hud) {
-        [_hud removeFromSuperview];
-        self.hud = nil;
-    }
-    // cell在layout后会将hud的indicator设为hiden，所以重新创建
-    self.hud = [MBProgressHUD showHUDAddedTo:self.videoBgImgV animated:YES];
-    _hud.userInteractionEnabled = NO;
-    _hud.mode = MBProgressHUDModeIndeterminate;
-    _hud.labelText = @"";
-    _hud.square = YES;
-    _hud.margin = 10.f;
-    _hud.removeFromSuperViewOnHide = YES;
-    [self.hud show:YES];
-}
-
-- (void)removeHud
-{
-    if (_hud) {
-        [_hud removeFromSuperview];
-        self.hud = nil;
-    }
 }
 
 - (void)autoFadeOutControlBar

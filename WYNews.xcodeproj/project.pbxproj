@@ -37,8 +37,11 @@
 		7D344F6B1C98FE500047288C /* video_list_cell_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D344F641C98FE500047288C /* video_list_cell_time@2x.png */; };
 		7D344F701C992F330047288C /* UIView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D344F6F1C992F330047288C /* UIView+Common.m */; };
 		7D344F731C9944B10047288C /* VideoSortHeaderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D344F721C9944B10047288C /* VideoSortHeaderBar.m */; };
+		7D403FF51C9A8B7B0012BEBA /* video_content_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D403FF31C9A8B7B0012BEBA /* video_content_bg@2x.png */; };
+		7D403FF61C9A8B7B0012BEBA /* video_content_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D403FF41C9A8B7B0012BEBA /* video_content_logo@2x.png */; };
+		7D403FFC1C9A8C5A0012BEBA /* AnnularLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D403FF91C9A8C5A0012BEBA /* AnnularLoader.m */; };
+		7D403FFD1C9A8C5A0012BEBA /* UITapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D403FFB1C9A8C5A0012BEBA /* UITapImageView.m */; };
 		7D94EF7E1C99715200321102 /* VideoSortPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D94EF7D1C99715200321102 /* VideoSortPlayController.m */; };
-		7DF3673C1C9834B700249F3D /* UITapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3673B1C9834B700249F3D /* UITapImageView.m */; };
 		7DF367421C983AA700249F3D /* UIControl+BlockAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF367411C983AA700249F3D /* UIControl+BlockAction.m */; };
 		7DF367451C9849FF00249F3D /* VideoMainPlayControler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF367441C9849FF00249F3D /* VideoMainPlayControler.m */; };
 		7DF3674C1C98596300249F3D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF367491C98596300249F3D /* Reachability.m */; };
@@ -277,10 +280,14 @@
 		7D344F6F1C992F330047288C /* UIView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Common.m"; sourceTree = "<group>"; };
 		7D344F711C9944B10047288C /* VideoSortHeaderBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSortHeaderBar.h; sourceTree = "<group>"; };
 		7D344F721C9944B10047288C /* VideoSortHeaderBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSortHeaderBar.m; sourceTree = "<group>"; };
+		7D403FF31C9A8B7B0012BEBA /* video_content_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_content_bg@2x.png"; sourceTree = "<group>"; };
+		7D403FF41C9A8B7B0012BEBA /* video_content_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_content_logo@2x.png"; sourceTree = "<group>"; };
+		7D403FF81C9A8C5A0012BEBA /* AnnularLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnularLoader.h; sourceTree = "<group>"; };
+		7D403FF91C9A8C5A0012BEBA /* AnnularLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnularLoader.m; sourceTree = "<group>"; };
+		7D403FFA1C9A8C5A0012BEBA /* UITapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITapImageView.h; sourceTree = "<group>"; };
+		7D403FFB1C9A8C5A0012BEBA /* UITapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITapImageView.m; sourceTree = "<group>"; };
 		7D94EF7C1C99715200321102 /* VideoSortPlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSortPlayController.h; sourceTree = "<group>"; };
 		7D94EF7D1C99715200321102 /* VideoSortPlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSortPlayController.m; sourceTree = "<group>"; };
-		7DF3673A1C9834B700249F3D /* UITapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITapImageView.h; sourceTree = "<group>"; };
-		7DF3673B1C9834B700249F3D /* UITapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITapImageView.m; sourceTree = "<group>"; };
 		7DF367401C983AA700249F3D /* UIControl+BlockAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+BlockAction.h"; sourceTree = "<group>"; };
 		7DF367411C983AA700249F3D /* UIControl+BlockAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+BlockAction.m"; sourceTree = "<group>"; };
 		7DF367431C9849FF00249F3D /* VideoMainPlayControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoMainPlayControler.h; sourceTree = "<group>"; };
@@ -742,8 +749,21 @@
 				7D344F621C98FE500047288C /* video_list_cell_big_icon@2x.png */,
 				7D344F631C98FE500047288C /* video_list_cell_count@2x.png */,
 				7D344F641C98FE500047288C /* video_list_cell_time@2x.png */,
+				7D403FF31C9A8B7B0012BEBA /* video_content_bg@2x.png */,
+				7D403FF41C9A8B7B0012BEBA /* video_content_logo@2x.png */,
 			);
 			path = video_icons;
+			sourceTree = "<group>";
+		};
+		7D403FF71C9A8C1B0012BEBA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D403FF81C9A8C5A0012BEBA /* AnnularLoader.h */,
+				7D403FF91C9A8C5A0012BEBA /* AnnularLoader.m */,
+				7D403FFA1C9A8C5A0012BEBA /* UITapImageView.h */,
+				7D403FFB1C9A8C5A0012BEBA /* UITapImageView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7DF367461C98596300249F3D /* Reachability */ = {
@@ -762,8 +782,6 @@
 				7DF40F9F1C97EEA50041BE4D /* UserVideoCell.m */,
 				7D344F711C9944B10047288C /* VideoSortHeaderBar.h */,
 				7D344F721C9944B10047288C /* VideoSortHeaderBar.m */,
-				7DF3673A1C9834B700249F3D /* UITapImageView.h */,
-				7DF3673B1C9834B700249F3D /* UITapImageView.m */,
 				7DF40FA01C97EEA50041BE4D /* VideoCellPlayVM.h */,
 				7DF40FA11C97EEA50041BE4D /* VideoCellPlayVM.m */,
 			);
@@ -955,6 +973,7 @@
 				C21EA9E31B21296E002E51FB /* App */,
 				C21EAA341B21296E002E51FB /* Scene */,
 				C24575501B228ABD00BF7A94 /* Model */,
+				7D403FF71C9A8C1B0012BEBA /* Views */,
 				C2DC911A1B2299230041B805 /* Tool */,
 				C21EA9FA1B21296E002E51FB /* OpenSource */,
 				7DF40FCF1C97F16F0041BE4D /* Category */,
@@ -1505,8 +1524,10 @@
 				C24575621B228ABD00BF7A94 /* fm_play.json in Resources */,
 				C2DC90F21B2296CA0041B805 /* ImgCell2.xib in Resources */,
 				C2DC90E51B2296CA0041B805 /* NewsViewController.xib in Resources */,
+				7D403FF51C9A8B7B0012BEBA /* video_content_bg@2x.png in Resources */,
 				C21EAA931B21296E002E51FB /* Info.plist in Resources */,
 				7D344F671C98FE500047288C /* video_comment_bg@2x.png in Resources */,
+				7D403FF61C9A8B7B0012BEBA /* video_content_logo@2x.png in Resources */,
 				7D344F691C98FE500047288C /* video_list_cell_big_icon@2x.png in Resources */,
 				C21EAA921B21296E002E51FB /* Images.xcassets in Resources */,
 				C2DC90F41B2296CA0041B805 /* ImgeCell1.xib in Resources */,
@@ -1583,7 +1604,7 @@
 				7DF40FF91C97F16F0041BE4D /* NSObject+NSCoding.m in Sources */,
 				C21EAA761B21296E002E51FB /* NSString+StringHeight.m in Sources */,
 				7DF40FFE1C97F16F0041BE4D /* UIImage+ImageWithColor.m in Sources */,
-				7DF3673C1C9834B700249F3D /* UITapImageView.m in Sources */,
+				7D403FFD1C9A8C5A0012BEBA /* UITapImageView.m in Sources */,
 				C21EAA881B21296E002E51FB /* UIButton+WebCache.m in Sources */,
 				7DF410A71C97FE500041BE4D /* NSObject+MTLComparisonAdditions.m in Sources */,
 				C21EAA991B21296E002E51FB /* FMTableViewCell.m in Sources */,
@@ -1623,6 +1644,7 @@
 				692EC7331B2D6F2900FBC892 /* DiskAnimateView.m in Sources */,
 				C21EAA781B21296E002E51FB /* ShareManger.m in Sources */,
 				C21EAABC1B216322002E51FB /* VideoViewController.m in Sources */,
+				7D403FFC1C9A8C5A0012BEBA /* AnnularLoader.m in Sources */,
 				C21EAA941B21296E002E51FB /* main.m in Sources */,
 				C2DC91001B2296E20041B805 /* DataModel.m in Sources */,
 				7DF40FFB1C97F16F0041BE4D /* NSString+Common.m in Sources */,

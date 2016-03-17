@@ -44,7 +44,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
     if (!self) {
         return nil;
     }
-    
+
     [self setupViews];
     [self initAction];
     return self;
@@ -71,14 +71,12 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
 
 - (void)setupViews
 {
+    self.clipsToBounds = YES;
     // video bg
     self.videoBgImgV = [[UITapImageView alloc]init];
-    _videoBgImgV.backgroundColor = [UIColor blackColor];
-    _videoBgImgV.layer.drawsAsynchronously = YES;
+    _videoBgImgV.backgroundColor = [UIColor whiteColor];
     _videoBgImgV.contentMode = UIViewContentModeScaleAspectFill;
-    _videoBgImgV.layer.masksToBounds = YES;
-    _videoBgImgV.layer.shouldRasterize = YES;
-    _videoBgImgV.layer.rasterizationScale = kScreenScale;
+    _videoBgImgV.clipsToBounds = YES;
     [self addSubview:_videoBgImgV];
     
     // slider
@@ -256,9 +254,9 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
     [_videoBgImgV sd_setImageWithURL:[NSURL URLWithString:video.thumbImgUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
     }];
-    _videoBgImgV.backgroundColor = [UIColor blackColor];
     _controlView.alpha = 0;
     _isControlBarShowing = NO;
+    _videoBgImgV.hidden = NO;
     [self refreshPlayViewByStatus:video];
 }
 
@@ -281,15 +279,13 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
         case VideoPlayStatusPlaying:
             self.playBt.hidden = YES;
             self.lineProgressV.hidden = NO;
-            self.videoBgImgV.backgroundColor = [UIColor clearColor];
-            self.videoBgImgV.image = nil;
+            self.videoBgImgV.hidden = YES;
             [self.hud hide:YES];
             break;
         case VideoPlayStatusPause:
             self.playBt.hidden = NO;
             self.lineProgressV.hidden = YES;
-            self.videoBgImgV.backgroundColor = [UIColor clearColor];
-            self.videoBgImgV.image = nil;
+            self.videoBgImgV.hidden = YES;
             break;
         case VideoPlayStatusEndPlay:
             self.playBt.hidden = NO;

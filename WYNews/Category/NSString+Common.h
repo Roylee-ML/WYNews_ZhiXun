@@ -23,4 +23,7 @@
 // 字符串中的单词首字母大写
 - (NSString *)capitalPinYinString;
 
+// 标准化数字  e.g 100000  = 1.0万
++ (NSString *)formatterNumberString:(NSInteger)number;
+
 @end

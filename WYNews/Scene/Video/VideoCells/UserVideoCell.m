@@ -319,12 +319,7 @@ typedef void(^BottomBarTapAction)(id sender,NSInteger index);
     NSString * length = [NSDate formattedPlayTimeFromTimeInterval:video.length];
     [_playLengthItem setupDisplayTitle:length];
     // play times
-    NSString * playCount = nil;
-    if (video.playCount/10000.0 > 1) {
-        playCount = [NSString stringWithFormat:@"%.2f万",video.playCount/10000.0];
-    }else {
-        playCount = [NSString stringWithFormat:@"%ld",video.playCount];
-    }
+    NSString * playCount = [NSString formatterNumberString:video.playCount];
     [_playCountItem setupDisplayTitle:playCount];
     // replay count
     CGFloat titleImageInset = 0;

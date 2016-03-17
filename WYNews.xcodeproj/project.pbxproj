@@ -88,6 +88,7 @@
 		7DF410B11C97FE500041BE4D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF410981C97FE500041BE4D /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		7DF410B21C97FE500041BE4D /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4109A1C97FE500041BE4D /* View+MASAdditions.m */; };
 		7DF410B51C98000D0041BE4D /* FullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF410B41C98000D0041BE4D /* FullScreenViewController.m */; };
+		7DFC14F51C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC14F41C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.m */; };
 		C20B240A1B21ADCD004BAE13 /* AudioAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20B24091B21ADCD004BAE13 /* AudioAnimateView.m */; };
 		C21EA9D91B212824002E51FB /* WYNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C21EA9D81B212824002E51FB /* WYNewsTests.m */; };
 		C21EAA731B21296E002E51FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C21EA9E51B21296E002E51FB /* AppDelegate.m */; };
@@ -388,6 +389,8 @@
 		7DF4109B1C97FE500041BE4D /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		7DF410B31C98000D0041BE4D /* FullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenViewController.h; sourceTree = "<group>"; };
 		7DF410B41C98000D0041BE4D /* FullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenViewController.m; sourceTree = "<group>"; };
+		7DFC14F31C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+BlockAction.h"; sourceTree = "<group>"; };
+		7DFC14F41C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+BlockAction.m"; sourceTree = "<group>"; };
 		C20B24081B21ADCD004BAE13 /* AudioAnimateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioAnimateView.h; sourceTree = "<group>"; };
 		C20B24091B21ADCD004BAE13 /* AudioAnimateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioAnimateView.m; sourceTree = "<group>"; };
 		C21EA9B61B212824002E51FB /* WYNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -850,6 +853,8 @@
 				7DF410071C97F5E60041BE4D /* UIColor+HexColor.m */,
 				7DF367401C983AA700249F3D /* UIControl+BlockAction.h */,
 				7DF367411C983AA700249F3D /* UIControl+BlockAction.m */,
+				7DFC14F31C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.h */,
+				7DFC14F41C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1620,6 +1625,7 @@
 				C21EAA851B21296E002E51FB /* SDWebImageDownloaderOperation.m in Sources */,
 				C21EAA741B21296E002E51FB /* DataBaseHandle.m in Sources */,
 				7DF410B21C97FE500041BE4D /* View+MASAdditions.m in Sources */,
+				7DFC14F51C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.m in Sources */,
 				69BB81EA1B3EA1FB00B66E8F /* MJRefreshBackGifFooter.m in Sources */,
 				7DF410B11C97FE500041BE4D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				69BB81ED1B3EA1FB00B66E8F /* MJRefreshGifHeader.m in Sources */,

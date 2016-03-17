@@ -167,9 +167,11 @@ static NSString * const VideoDataFromDBKey = @"VideoDataFromDBKey";
     [[OnePlayer onePlayer] playAudioFromController:self];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.videoCellPlayVM resetUserVideoCellPlayStatus];
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (!self.videoCellPlayVM.playerManger.isFullScreenMode) {
+        [self.videoCellPlayVM resetUserVideoCellPlayStatus];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

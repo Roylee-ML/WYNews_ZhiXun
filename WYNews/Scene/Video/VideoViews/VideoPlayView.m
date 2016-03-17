@@ -74,6 +74,20 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
     }
 }
 
+- (void)updateLoaderByStatus:(MVideo *)video
+{
+    VideoPlayStatus playStatus = video.statusLayout.playStatus;
+    if (playStatus == VideoPlayStatusBeginPlay) {
+        [self startLoader];
+        self.hidden = NO;
+    }else {
+        BOOL hiden = (playStatus == VideoPlayStatusPlaying || playStatus == VideoPlayStatusPause);
+        [self stopLoader];
+        self.hidden = hiden;
+    }
+}
+
+
 @end
 
 
@@ -255,9 +269,9 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
 
 - (void)initAction
 {
-    // single tap     show or hiden slider and  control play pause
+    // single tap: show or hiden slider and  control play pause
     @weakify(self)
-    [_videoCoverImgV addTapBlock:^(id obj) {
+    UIGestureRecognizer * tap = [self addGestureRecognizer:UITapGestureRecognizer.class action:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
         @strongify(self)
         [self showOrHidenVideoControlView];
     }];
@@ -265,7 +279,8 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
     // double click
     UITapGestureRecognizer * doubleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(playPauseAction:)];
     doubleTap.numberOfTapsRequired = 2;
-    [_videoCoverImgV addGestureRecognizer:doubleTap];
+    [tap requireGestureRecognizerToFail:doubleTap];
+    [self addGestureRecognizer:doubleTap];
     
     // play
     [_playBt addAction:^(id sender) {
@@ -328,18 +343,15 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
         case VideoPlayStatusNormal:
             self.playBt.hidden = NO;
             self.lineProgressV.hidden = YES;
-            [_videoCoverImgV stopLoader];
             break;
         case VideoPlayStatusBeginPlay:
             self.playBt.hidden = YES;
             self.lineProgressV.hidden = YES;
             self.lineProgressV.width = 0;
-            [_videoCoverImgV startLoader];;
             break;
         case VideoPlayStatusPlaying:
             self.playBt.hidden = YES;
             self.lineProgressV.hidden = NO;
-            [_videoCoverImgV stopLoader];
             break;
         case VideoPlayStatusPause:
             self.playBt.hidden = NO;
@@ -348,17 +360,17 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
         case VideoPlayStatusEndPlay:
             self.playBt.hidden = NO;
             self.lineProgressV.hidden = YES;
-            [_videoCoverImgV stopLoader];
             break;
         case VideoPlayStatusFailedPlay:
             self.playBt.hidden = NO;
             self.lineProgressV.hidden = YES;
-            [_videoCoverImgV stopLoader];
             break;
             
         default:
             break;
     }
+    // loader
+    [_videoCoverImgV updateLoaderByStatus:video];
     // update time ui
     if (_videoStatus.totalTime >= 60 * 60) {
         [_currentTimeLab mas_updateConstraints:^(MASConstraintMaker *make) {

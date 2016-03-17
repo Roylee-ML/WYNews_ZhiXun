@@ -74,5 +74,87 @@ CGRect UIScreenRect() {
     }
 }
 
+#pragma mark gesturerecognizer state
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.touchBlock) {
+        self.touchBlock(self, UI_GestureRecognizerStateBegan, touches, event);
+    }else {
+        [super touchesBegan:touches withEvent:event];
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.touchBlock) {
+        self.touchBlock(self, UI_GestureRecognizerStateMoved, touches, event);
+    }else {
+        [super touchesMoved:touches withEvent:event];
+    }
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.touchBlock) {
+        self.touchBlock(self, UI_GestureRecognizerStateEnded, touches, event);
+    }else {
+        [super touchesEnded:touches withEvent:event];
+    }
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.touchBlock) {
+        self.touchBlock(self, UI_GestureRecognizerStateCancelled, touches, event);
+    }else {
+        [super touchesCancelled:touches withEvent:event];
+    }
+}
+
+- (void (^)(UIView *view, UI_GestureRecognizerState state, NSSet *touches, UIEvent *event))touchBlock {
+    return objc_getAssociatedObject(self, "touch_block");
+}
+
+- (void)setTouchBlock:(void (^)(UIView *, UI_GestureRecognizerState, NSSet *, UIEvent *))touchBlock {
+    [self willChangeValueForKey:@"_touchBlock"];
+    objc_setAssociatedObject(self, "touch_block", touchBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self didChangeValueForKey:@"_touchBlock"];
+}
+
+
+
+- (void)doCircleFrame{
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = self.frame.size.width/2;
+    self.layer.borderWidth = 0.5;
+    self.layer.borderColor = [UIColor colorWithHex:@"0xdddddd"].CGColor;
+}
+- (void)doNotCircleFrame{
+    self.layer.cornerRadius = 0.0;
+    self.layer.borderWidth = 0.0;
+}
+
+- (void)doBorderWidth:(CGFloat)width color:(UIColor *)color cornerRadius:(CGFloat)cornerRadius{
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = kScreenScale;
+    if (width == 0) {
+        return;
+    }
+    self.layer.borderWidth = width;
+    if (!color) {
+        self.layer.borderColor = [UIColor colorWithHex:@"0xdddddd"].CGColor;
+    }else{
+        self.layer.borderColor = color.CGColor;
+    }
+}
+
+#pragma mark - UIGestureRecognizerBlock
+- (UIGestureRecognizer *)addGestureRecognizer:(Class)gesClass action:(UIGecognizerActionBlock)action {
+    if (![gesClass isSubclassOfClass:UIGestureRecognizer.class]) {
+        return nil;
+    }
+    UIGestureRecognizer * ges = [(UIGestureRecognizer *)[gesClass alloc] initWithAction:action];
+    [self addGestureRecognizer:ges];
+    return ges;
+}
+
 
 @end

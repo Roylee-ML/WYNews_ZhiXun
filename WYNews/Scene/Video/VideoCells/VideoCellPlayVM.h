@@ -18,6 +18,7 @@
 @interface VideoCellPlayVMSource : NSObject
 
 @property (nonatomic, strong) NSMutableArray * videoSource;
+@property (nonatomic, strong, readonly) MVideo * playingVideo;
 
 - (instancetype)initWithContainerController:(__weak UIViewController *)viewController
                                   tableView:(UIScrollView *)tableView
@@ -30,6 +31,7 @@
 
 @property (nonatomic, strong) VideoCellPlayVMSource * videoVMSource;
 @property (nonatomic, strong) AVPlayerManger * playerManger;
+@property (nonatomic, strong) UIView * playingCell;
 
 - (instancetype)initWithVideoVMSource:(VideoCellPlayVMSource *)videoVMSource;
 

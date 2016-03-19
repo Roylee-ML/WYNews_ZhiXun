@@ -88,6 +88,8 @@
         numStr = [NSString stringWithFormat:@"%.1f亿",number/(1000*1000*10.0)];
     }else if (number > 1000*10) {
         numStr = [NSString stringWithFormat:@"%.1f万",number/(1000*10.0)];
+    }else {
+        numStr = [NSString stringWithFormat:@"%ld",number];
     }
     return numStr;
 }

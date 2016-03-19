@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UIScrollView * tableView; // 支持tableview 与 collectionview
 @property (nonatomic, weak) UIViewController * containerVC;
+@property (nonatomic, strong) NSIndexPath * playingIndexPath;
 
 @end
 
@@ -30,6 +31,10 @@
     self.containerVC = viewController;
     self.tableView = tableView;
     return self;
+}
+
+- (MVideo *)playingVideo {
+    return self.videoSource[_playingIndexPath.row];
 }
 
 @end
@@ -89,6 +94,15 @@
     self.playingIndexPath = nil;
 }
 
+- (UIView *)playingCell {
+    if (_playingIndexPath) {
+        UIView * cell = [self.videoVMSource.tableView p_cellForRowAtIndexPath:_playingIndexPath];
+        return cell;
+    }else {
+        return nil;
+    }
+}
+
 #pragma mark - UIApplication Notify
 - (void)applicationWillResignActive {
     [self resetUserVideoCellPlayStatus];
@@ -143,6 +157,7 @@
             // refresh cell
             NSIndexPath * indexPath = [self.videoVMSource.tableView p_indexPathForCell:cell];
             self.playingIndexPath = indexPath;
+            self.videoVMSource.playingIndexPath = indexPath;
             video.statusLayout.playStatus = VideoPlayStatusBeginPlay;
             video.statusLayout.totalTime = [self.playerManger.player currentItemDuration];
             NSLog(@"totaltime === %.2f",video.statusLayout.totalTime);

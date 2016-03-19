@@ -350,6 +350,7 @@ void RUN_ON_UI_THREAD(dispatch_block_t block) {
     RUN_ON_UI_THREAD(^{
         
         self.track.isPlayedToEnd = YES;
+        NSLog(@"track === %@   isend = %d",self.track,self.track.isPlayedToEnd);
         [self pauseContentWithCompletionHandler:^{
             [self clearPlayer];
             if ([self.delegate respondsToSelector:@selector(videoPlayer:didPlayToEnd:)]) {

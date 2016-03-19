@@ -89,6 +89,9 @@
 		7DF410B21C97FE500041BE4D /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4109A1C97FE500041BE4D /* View+MASAdditions.m */; };
 		7DF410B51C98000D0041BE4D /* FullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF410B41C98000D0041BE4D /* FullScreenViewController.m */; };
 		7DFC14F51C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC14F41C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.m */; };
+		7DFC14FE1C9AFAC8003CE991 /* SmallWinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC14FD1C9AFAC8003CE991 /* SmallWinView.m */; };
+		7DFC15011C9AFD7F003CE991 /* player_embeddedscreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DFC14FF1C9AFD7F003CE991 /* player_embeddedscreen@2x.png */; };
+		7DFC15021C9AFD7F003CE991 /* video_player_exit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DFC15001C9AFD7F003CE991 /* video_player_exit@2x.png */; };
 		C20B240A1B21ADCD004BAE13 /* AudioAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20B24091B21ADCD004BAE13 /* AudioAnimateView.m */; };
 		C21EA9D91B212824002E51FB /* WYNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C21EA9D81B212824002E51FB /* WYNewsTests.m */; };
 		C21EAA731B21296E002E51FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C21EA9E51B21296E002E51FB /* AppDelegate.m */; };
@@ -391,6 +394,10 @@
 		7DF410B41C98000D0041BE4D /* FullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenViewController.m; sourceTree = "<group>"; };
 		7DFC14F31C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+BlockAction.h"; sourceTree = "<group>"; };
 		7DFC14F41C9AC33B003CE991 /* UIGestureRecognizer+BlockAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+BlockAction.m"; sourceTree = "<group>"; };
+		7DFC14FC1C9AFAC8003CE991 /* SmallWinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallWinView.h; sourceTree = "<group>"; };
+		7DFC14FD1C9AFAC8003CE991 /* SmallWinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallWinView.m; sourceTree = "<group>"; };
+		7DFC14FF1C9AFD7F003CE991 /* player_embeddedscreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_embeddedscreen@2x.png"; sourceTree = "<group>"; };
+		7DFC15001C9AFD7F003CE991 /* video_player_exit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_player_exit@2x.png"; sourceTree = "<group>"; };
 		C20B24081B21ADCD004BAE13 /* AudioAnimateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioAnimateView.h; sourceTree = "<group>"; };
 		C20B24091B21ADCD004BAE13 /* AudioAnimateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioAnimateView.m; sourceTree = "<group>"; };
 		C21EA9B61B212824002E51FB /* WYNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -754,6 +761,8 @@
 				7D344F641C98FE500047288C /* video_list_cell_time@2x.png */,
 				7D403FF31C9A8B7B0012BEBA /* video_content_bg@2x.png */,
 				7D403FF41C9A8B7B0012BEBA /* video_content_logo@2x.png */,
+				7DFC14FF1C9AFD7F003CE991 /* player_embeddedscreen@2x.png */,
+				7DFC15001C9AFD7F003CE991 /* video_player_exit@2x.png */,
 			);
 			path = video_icons;
 			sourceTree = "<group>";
@@ -822,6 +831,8 @@
 				7DF40FB91C97EEA50041BE4D /* PlaySliderView.m */,
 				7DF40FBC1C97EEA50041BE4D /* VideoPlayView.h */,
 				7DF40FBD1C97EEA50041BE4D /* VideoPlayView.m */,
+				7DFC14FC1C9AFAC8003CE991 /* SmallWinView.h */,
+				7DFC14FD1C9AFAC8003CE991 /* SmallWinView.m */,
 			);
 			path = VideoViews;
 			sourceTree = "<group>";
@@ -1534,6 +1545,7 @@
 				7D344F671C98FE500047288C /* video_comment_bg@2x.png in Resources */,
 				7D403FF61C9A8B7B0012BEBA /* video_content_logo@2x.png in Resources */,
 				7D344F691C98FE500047288C /* video_list_cell_big_icon@2x.png in Resources */,
+				7DFC15021C9AFD7F003CE991 /* video_player_exit@2x.png in Resources */,
 				C21EAA921B21296E002E51FB /* Images.xcassets in Resources */,
 				C2DC90F41B2296CA0041B805 /* ImgeCell1.xib in Resources */,
 				C2DC912D1B2299230041B805 /* night_top_navigation_back@2x.png in Resources */,
@@ -1545,6 +1557,7 @@
 				7D344F6B1C98FE500047288C /* video_list_cell_time@2x.png in Resources */,
 				C21EAA911B21296E002E51FB /* Main.storyboard in Resources */,
 				C2DC90EE1B2296CA0041B805 /* ImageCell.xib in Resources */,
+				7DFC15011C9AFD7F003CE991 /* player_embeddedscreen@2x.png in Resources */,
 				C2AEBFA01B228CF90090F4C4 /* LICENSE in Resources */,
 				C24575611B228ABD00BF7A94 /* fm.json in Resources */,
 				C2DC91311B2299230041B805 /* refresh_line_hour@2x.png in Resources */,
@@ -1732,6 +1745,7 @@
 				C2AEBF731B228CE40090F4C4 /* SCNavTabBarController.m in Sources */,
 				C2B40C211B32BF310085466D /* NSURLSessionDownload.m in Sources */,
 				C2DC90F11B2296CA0041B805 /* ImgCell2.m in Sources */,
+				7DFC14FE1C9AFAC8003CE991 /* SmallWinView.m in Sources */,
 				C21EAA861B21296E002E51FB /* SDWebImageManager.m in Sources */,
 				C20B240A1B21ADCD004BAE13 /* AudioAnimateView.m in Sources */,
 				C21EAA981B21296E002E51FB /* FMPlateViewController.m in Sources */,

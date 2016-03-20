@@ -15,6 +15,7 @@
 @property (nonatomic, copy) PlaySliderViewAction touchBeganAction;
 @property (nonatomic, copy) PlaySliderViewAction touchEndAction;
 @property (nonatomic, copy) PlaySliderViewAction valueChangedAction;
+@property (nonatomic, assign) BOOL isMoving;
 
 @end
 
@@ -26,10 +27,12 @@
     if (!self) {
         return nil;
     }
+    // 只是在最后触发valuechange
+    self.continuous = NO;
     
     self.bufferProgress = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
-    _bufferProgress.progressTintColor = [UIColor colorWithHex:@"888888"];
-    _bufferProgress.trackTintColor = [UIColor colorWithHex:@"cccccc"];
+    _bufferProgress.progressTintColor = [UIColor colorWithHex:@"999999"];
+    _bufferProgress.trackTintColor = [UIColor whiteColor];
     [self insertSubview:_bufferProgress atIndex:0];
     
     [self addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -128,13 +131,14 @@
     return thumbRect;
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(nullable UIEvent *)event {
-    return CGRectContainsPoint([self bounds], point);
-}
+//- (BOOL)pointInside:(CGPoint)point withEvent:(nullable UIEvent *)event {
+//    return CGRectContainsPoint([self thumbRect], point);
+//}
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-//    CGRect thumbFrame = [self thumbRect];
+    UIView * view = [super hitTest:point withEvent:event];
+    //    CGRect thumbFrame = [self thumbRect];
     CGRect thumbFrame = self.bounds;
     
     // check if the point is within the thumb
@@ -142,7 +146,9 @@
     {
         // if so trigger the method of the super class
         NSLog(@"inside thumb");
-        // notification
+        if ([view isKindOfClass:UIProgressView.class]) {
+            return self;
+        }
         return [super hitTest:point withEvent:event];
     }
     else
@@ -153,6 +159,45 @@
     }
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    _isMoving = NO;
+    _isDragging = YES;
+    if (self.touchBeganAction) {
+        self.touchBeganAction(self);
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesMoved:touches withEvent:event];
+    _isMoving = YES;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    _isDragging = NO;
+    if (!_isMoving) {
+        CGPoint location = [[touches allObjects].lastObject locationInView:self];
+        CGRect trackRect = [self trackRectForBounds:self.bounds];
+        trackRect.size.height = self.bounds.size.height;
+        trackRect.origin.y = 0;
+        if (CGRectContainsPoint(trackRect, location)) {
+            CGFloat minX = CGRectGetMinX(trackRect);
+            CGFloat value = (location.x - minX)/CGRectGetWidth(trackRect);
+            self.value = value;
+            if (self.touchEndAction) {
+                self.touchEndAction(self);
+            }
+            if (self.valueChangedAction) {
+                self.valueChangedAction(self);
+            }
+        }
+    }
+}
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+    _isDragging = NO;
+}
 
 @end
 

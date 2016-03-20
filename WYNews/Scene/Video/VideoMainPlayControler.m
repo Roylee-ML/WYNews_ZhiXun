@@ -285,10 +285,10 @@ static void * VideoPlayDidChangeContext    = &VideoPlayDidChangeContext;
         if (isEnd) {
             AVPlayerTrack * track = object;
             if (![track isKindOfClass:NSNull.class]) [track removeObserver:self forKeyPath:@"isPlayedToEnd"];
-        }
-        if (_smallView) {
-            [_smallView removeFromSuperview];
-            [self setSmallView:nil];
+            if (_smallView && !self.videoCellPlayVM.playerManger.isFullScreenMode) {
+                [_smallView removeFromSuperview];
+                [self setSmallView:nil];
+            }
         }
     }
 }

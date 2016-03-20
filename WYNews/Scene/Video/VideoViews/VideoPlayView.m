@@ -306,7 +306,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 3.0;
         @strongify(self)
         [self cancelAutoFadeOutControlBar];
     }];
-    [_sliderView addTouchEndAction:^(PlaySliderView *slider) {
+    [_sliderView addTouchValueChangedAction:^(PlaySliderView *slider) {
         @strongify(self)
         [self autoFadeOutControlBar];
         if (self.changeProgressAction) {

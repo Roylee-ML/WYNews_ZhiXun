@@ -281,7 +281,7 @@ static void * VideoPlayDidChangeContext    = &VideoPlayDidChangeContext;
         if (![newTrack isKindOfClass:NSNull.class]) [newTrack addObserver:self forKeyPath:@"isPlayedToEnd" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:VideoPlayToEndContext];
     }
     if (context == VideoPlayToEndContext) {
-        BOOL isEnd = [[change objectForKey:NSKeyValueChangeOldKey] boolValue];
+        BOOL isEnd = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
         if (isEnd) {
             AVPlayerTrack * track = object;
             if (![track isKindOfClass:NSNull.class]) [track removeObserver:self forKeyPath:@"isPlayedToEnd"];

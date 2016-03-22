@@ -277,8 +277,13 @@ static void * VideoPlayDidChangeContext    = &VideoPlayDidChangeContext;
             }
         }
         // KVO
-        if (![oldTrack isKindOfClass:NSNull.class]) [oldTrack removeObserver:self forKeyPath:@"isPlayedToEnd"];
-        if (![newTrack isKindOfClass:NSNull.class]) [newTrack addObserver:self forKeyPath:@"isPlayedToEnd" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:VideoPlayToEndContext];
+        @try {
+            [oldTrack removeObserver:self forKeyPath:@"isPlayedToEnd"];
+            [newTrack addObserver:self forKeyPath:@"isPlayedToEnd" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:VideoPlayToEndContext];
+        }
+        @catch (NSException *exception) {
+            
+        }
     }
     if (context == VideoPlayToEndContext) {
         BOOL isEnd = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];

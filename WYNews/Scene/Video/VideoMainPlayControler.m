@@ -167,7 +167,6 @@ static void * VideoPlayDidChangeContext    = &VideoPlayDidChangeContext;
     // first play view top space
     if (indexPath.row == 0) {
         self.minPlayViewTopSpace = [tableView convertPoint:cell.playView.frame.origin fromView:cell.playView.superview].y;
-        NSLog(@"第一个视频窗口距离顶部的距离是：%.2f",_minPlayViewTopSpace);
     }
     return cell;
 }
@@ -279,11 +278,11 @@ static void * VideoPlayDidChangeContext    = &VideoPlayDidChangeContext;
         // KVO
         @try {
             [oldTrack removeObserver:self forKeyPath:@"isPlayedToEnd"];
-            [newTrack addObserver:self forKeyPath:@"isPlayedToEnd" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:VideoPlayToEndContext];
         }
         @catch (NSException *exception) {
             
         }
+        if (![newTrack isKindOfClass:NSNull.class]) [newTrack addObserver:self forKeyPath:@"isPlayedToEnd" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:VideoPlayToEndContext];
     }
     if (context == VideoPlayToEndContext) {
         BOOL isEnd = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
